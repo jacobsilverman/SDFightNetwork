@@ -1,4 +1,4 @@
-const footer = () => {
+const Footer = () => {
     return (
         <div>
             &emsp;@sd fight club
@@ -6,4 +6,4 @@ const footer = () => {
     )
 }
 
-export default footer;
+export default Footer;

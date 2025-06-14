@@ -11,12 +11,12 @@ import Drawer from '@mui/material/Drawer'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
-import './header.scss';
+import './Header.scss';
 import { useState } from 'react'
 
 const navItems = ['Home', 'About', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'Contact']
 
-export default function NavBar() {
+const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleDrawerToggle = () => {
@@ -82,3 +82,5 @@ export default function NavBar() {
     </>
   )
 }
+
+export default Header;
