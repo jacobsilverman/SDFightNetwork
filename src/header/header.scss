@@ -1,0 +1,9 @@
+button.nav-button:focus, button.nav-button:focus-visible,  button.nav-button:active {
+    outline: 0px auto -webkit-focus-ring-color;
+    background-color: #965b06;
+    transition: 4s;
+}
+
+button.nav-button:hover {
+    outline: 2px auto -webkit-focus-ring-color;
+}

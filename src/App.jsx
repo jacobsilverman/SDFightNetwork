@@ -56,7 +56,7 @@ const Hero = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/90 z-10" />
 
     {/* Text Layer */}
-    <div className="relative z-20 flex items-top justify-end h-full pr-[10%] max-[668px]:pt-[10%] min-[668px]:pt-[5%] font-bebas">
+    <div className="relative z-20 flex items-top justify-end h-full pr-[10%] max-[668px]:pt-[15%] min-[668px]:pt-[10%] font-bebas">
       <motion.h1
         initial={{ opacity: 0, x: -700 }}
         animate={{ opacity: 1, x: 0 }}
@@ -76,7 +76,7 @@ const Hero = () => (
               duration: 0.8,
               ease: "easeOut"
             }}
-            className={shimmerCls(150, index)}
+            className={shimmerCls(160, index)}
           >
             {line}
           </motion.div>
@@ -90,7 +90,7 @@ const Hero = () => (
 const CardSection = () => (
   <div className="text-center pt-20 bg-zinc-100 pb-20">
     <p className="text-xl text-zinc-400 mb-6">
-      Discover the world of combat and level up your skills
+      Our Network primary consists of these fighting practices
     </p>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-20 py-10">
       <motion.div
@@ -133,7 +133,7 @@ const CardSection = () => (
             <GiBelt className="text-6xl text-black mb-4 mx-auto" />
             <h2 className="text-2xl font-bold mb-2">Ju juisu</h2>
             <p className="text-zinc-600">
-              Embrace the art of 8 limbs. Train with kicks, knees, elbows, and clinch to dominate the fight.
+              Master the ground game with leverage, submissions, and positional control. Develop the skill to outmaneuver opponents regardless of size.
             </p>
           </CardContent>
         </Card>
@@ -149,7 +149,7 @@ const CardSection = () => (
             <GiFist  className="text-6xl text-green-600 mb-4 mx-auto" />
             <h2 className="text-2xl font-bold mb-2">Mixed Martial Arts</h2>
             <p className="text-zinc-600">
-              Embrace the art of 8 limbs. Train with kicks, knees, elbows, and clinch to dominate the fight.
+              Blend striking and grappling into a complete combat system. Train across disciplines to become a well-rounded and versatile fighter.
             </p>
           </CardContent>
         </Card>

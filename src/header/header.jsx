@@ -1,20 +1,84 @@
-const header = () => {
-    return (
-        <div className="border-b border-b-[5px] border-yellow-600 flex h-[30px]">
-            <div>
-                home  
-            </div>
-            <div>
-                Fight
-            </div>
-            <div>
-                Train
-            </div>
-            <div>
-                Schedule
-            </div>
-        </div>
-    )
-}
+// src/components/NavBar.tsx
+import React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
+import Button from '@mui/material/Button'
+import Box from '@mui/material/Box'
+import Drawer from '@mui/material/Drawer'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemText from '@mui/material/ListItemText'
+import './header.scss';
+import { useState } from 'react'
 
-export default header;
+const navItems = ['Home', 'About', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'Contact']
+
+export default function NavBar() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen)
+  }
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        SD Fight Network
+      </Typography>
+      <List>
+        {navItems.map((item) => (
+          <ListItem button key={item}>
+            <ListItemText primary={item} />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  )
+
+  return (
+    <>
+      <AppBar component="nav" position="fixed" sx={{ backgroundColor: '#404040' }}>
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+          >
+            SD Fight Network
+          </Typography>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            {navItems.map((item) => (
+              <Button key={item} sx={{ color: '#fff' }} className='nav-button'>
+                {item}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        anchor="left"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 }
+        }}
+      >
+        {drawer}
+      </Drawer>
+    </>
+  )
+}
