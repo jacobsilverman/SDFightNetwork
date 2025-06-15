@@ -1,0 +1,95 @@
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 1rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.contact-info {
+  flex: 1;
+  background-color: #fef3c7; // soft amber background for info
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #92400e; // darker amber for headings
+  }
+
+  h3 {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: #b45309;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #78350f;
+  }
+  span {
+    display: inline-block;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+.contact-form {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1f2937;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #d97706; // amber focus color
+      box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.3);
+    }
+  }
+
+  button {
+    background-color: #d97706;
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    align-self: center;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #b45309;
+    }
+  }
+}

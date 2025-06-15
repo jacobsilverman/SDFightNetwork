@@ -20,9 +20,8 @@ const Contact = () => {
     <div className="page-container">
       <h1 className="page-title">Contact <span>Us</span></h1>
 
-      <div>
-        {/* Contact Info */}
-        <div className="space-y-6">
+      <div className="contact-content">
+        <div className="contact-info space-y-6">
           <h2 className="text-2xl font-semibold">SD Fight Network</h2>
           <p>
             We’re here to help with training inquiries, business partnerships, and gear support.
@@ -33,20 +32,19 @@ const Contact = () => {
             <h3 className="font-semibold">📍 Address</h3>
             <p>Solana Beach, San Diego, CA 92075</p>
           </div>
-
-          <div>
-            <h3 className="font-semibold">📞 Phone</h3>
-            <p>(760) 815-7801</p>
-          </div>
-
-          <div>
+          
+          <span>
             <h3 className="font-semibold">✉️ Email</h3>
             <p>contact@sdfightnetwork.com</p>
-          </div>
+          </span>
+
+          <span>
+            <h3 className="font-semibold">📞 Phone</h3>
+            <p>(760) 815-7801</p>
+          </span>
         </div>
 
-        {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded-xl shadow space-y-4">
+        <form onSubmit={handleSubmit} className="contact-form">
           <div>
             <label className="block font-medium mb-1" htmlFor="name">
               Name

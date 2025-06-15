@@ -21,8 +21,8 @@
   .page-title {
     font-size: 2.25rem; // text-4xl (36px)
     font-weight: 700;   // font-bold
-    color: black;       // text-black
-    margin-bottom: 1rem; // mb-4 (16px)
+    color: var(--text-color);       // text-black
+    margin-bottom: 2rem; // mb-4 (16px)
 
     span {
       color: var(--primary-color);
