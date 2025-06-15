@@ -26,7 +26,7 @@ const Header = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        SD Fight Network
+        <Link to="/">SD Fight Network</Link>
       </Typography>
       <List>
         {navItems.map((item) => (
@@ -57,7 +57,7 @@ const Header = () => {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             className="test"
           >
-            SD Fight Network
+            <Link to="/">SD Fight Network</Link>
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="nav-tabs-container">
             {navItems.map((item) => (

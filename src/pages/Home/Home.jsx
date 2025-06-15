@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { GiBoxingGloveSurprise, GiBelt, GiFist  } from "react-icons/gi";
 import { MdSportsMma } from "react-icons/md";
 
+import { Link } from "react-router-dom";
+
 import boxing from "../../assets/boxingAnimation.gif";
 import boxing2 from "../../assets/boxingAnimation2.gif";
 import boxing3 from "../../assets/boxingAnimation3.gif"
@@ -162,7 +164,7 @@ const Home = () => {
                 <img
                     src={boxing2}
                     alt="Boxing layer 1"
-                    className="absolute inset-0w-full h-full object-cover opacity-50 z-0"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 z-0"
                 />
                 <img
                     src={boxing3}
@@ -174,11 +176,11 @@ const Home = () => {
                     <SignUpCard
                         title="Sign up to Fight"
                         desc="We will find you a sparring partner who is similar in size and skill"
-                        button="Fight" />
+                        button={(<Link to="/fighters">Fight</Link>)} />
                     <SignUpCard
                         title="Sign up to Train"
                         desc="We place you in individualized classes based on your skill level"
-                        button="Train" />
+                        button={(<Link to="/trainers">Train</Link>)} />
                 </div>
             </div>
         )
