@@ -1,8 +1,10 @@
+import './footer.scss';
+
 const Footer = () => {
     return (
-        <div>
+        <footer>
             &emsp;@sd fight club
-        </div>
+        </footer>
     )
 }
 
