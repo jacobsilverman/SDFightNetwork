@@ -1,3 +1,5 @@
+@use "../styles/variables" as vars;
+
 nav div div.test {
     display: flex;
     justify-content: flex-start;
@@ -22,10 +24,9 @@ nav div div.test {
 
     a.nav-tab:focus, a.nav-tab:focus-visible,  a.nav-tab:active {
         outline: 0px auto -webkit-focus-ring-color;
-        background-color: #965b06;
+        background-color: var(--primary-color);
         transition: 4s;
         height: 64px;
     }
-
 }
 

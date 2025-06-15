@@ -9,7 +9,7 @@ import Equipment from './pages/Equipment';
 import Contact from './pages/Contact';
 import Header from './Header';
 import Footer from './Footer';
-import './App.scss';
+import './styles/App.scss';
 
 
 export default function FightSite() {
