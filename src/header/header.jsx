@@ -1,21 +1,20 @@
 // src/components/NavBar.tsx
-import React from 'react'
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
-import Button from '@mui/material/Button'
-import Box from '@mui/material/Box'
-import Drawer from '@mui/material/Drawer'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemText from '@mui/material/ListItemText'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import { Link } from 'react-router-dom';
 import './Header.scss';
-import { useState } from 'react'
+import { useState } from 'react';
 
-const navItems = ['Home', 'About', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'Contact']
+const navItems = ['Home', 'About', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'Contact'];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)

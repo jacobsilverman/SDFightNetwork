@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Fighters from './pages/Fighters';
@@ -9,6 +9,7 @@ import Equipment from './pages/Equipment';
 import Contact from './pages/Contact';
 import Header from './Header';
 import Footer from './Footer';
+import './App.scss';
 
 
 export default function FightSite() {
