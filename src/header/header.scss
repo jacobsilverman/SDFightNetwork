@@ -1,9 +1,28 @@
-button.nav-button:focus, button.nav-button:focus-visible,  button.nav-button:active {
-    outline: 0px auto -webkit-focus-ring-color;
-    background-color: #965b06;
-    transition: 4s;
+
+
+.nav-tabs-container {
+    min-height:64px;
+    display: flex !important;
+    align-items: center;
+
+    a.nav-tab {
+        height: 64px;
+        padding: 10px;
+        display:flex;
+        align-items: center;
+        color: white;
+    }
+
+    a.nav-tab:hover {
+        outline: 2px auto -webkit-focus-ring-color;
+    }
+
+    a.nav-tab:focus, a.nav-tab:focus-visible,  a.nav-tab:active {
+        outline: 0px auto -webkit-focus-ring-color;
+        background-color: #965b06;
+        transition: 4s;
+        height: 64px;
+    }
+
 }
 
-button.nav-button:hover {
-    outline: 2px auto -webkit-focus-ring-color;
-}

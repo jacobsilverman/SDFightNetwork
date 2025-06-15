@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { GiBoxingGloveSurprise, GiBelt, GiFist  } from "react-icons/gi";
 import { MdSportsMma } from "react-icons/md";
 
-import boxing from "../assets/boxingAnimation.gif";
-import boxing2 from "../assets/boxingAnimation2.gif";
-import boxing3 from "../assets/boxingAnimation3.gif"
+import boxing from "../../assets/boxingAnimation.gif";
+import boxing2 from "../../assets/boxingAnimation2.gif";
+import boxing3 from "../../assets/boxingAnimation3.gif"
 
 const Home = () => {
     const SignUpCard = ({title, desc, button}) => (

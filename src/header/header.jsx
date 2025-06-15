@@ -11,6 +11,7 @@ import Drawer from '@mui/material/Drawer'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
+import { Link } from 'react-router-dom'
 import './Header.scss';
 import { useState } from 'react'
 
@@ -58,11 +59,12 @@ const Header = () => {
           >
             SD Fight Network
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="nav-tabs-container">
             {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }} className='nav-button'>
+              
+              <Link to={`/${item}`} key={item} sx={{ color: '#fff' }} className='nav-tab'>
                 {item}
-              </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
