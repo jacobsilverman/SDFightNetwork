@@ -100,7 +100,7 @@ const Locations = () => {
 
   return (
     <div className="locations-page">
-      <h1 className="text-3xl font-bold mb-4">Our Training Locations</h1>
+      <h1 className="page-title">Training <span>Locations</span></h1>
 
       {isLoaded && (
         <GoogleMap

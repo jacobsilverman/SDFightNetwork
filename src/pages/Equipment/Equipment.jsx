@@ -1,5 +1,7 @@
 import { useState } from "react";
 import productsData from "../../data/Products.json";
+import "./Equipment.scss";
+
 const categories = ["All", "Gloves", "Wraps", "Pads", "Protection"];
 
 const Equipment = () => {
@@ -14,8 +16,8 @@ const Equipment = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white px-6 py-12">
-      <h1 className="text-4xl font-bold text-center text-black mb-10">Shop Equipment</h1>
+    <div className="equipment-page">
+      <h1 className="page-title">Shop <span>Equipment</span></h1>
 
       {/* Filters */}
       <div className="flex flex-wrap justify-center gap-4 mb-6">

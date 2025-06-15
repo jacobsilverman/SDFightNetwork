@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Contact.scss";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -16,10 +17,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-black px-6 py-12">
-      <h1 className="text-4xl font-bold text-center mb-8">Contact Us</h1>
+    <div className="contact-page">
+      <h1 className="page-title">Contact <span>Us</span></h1>
 
-      <div className="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-start">
+      <div>
         {/* Contact Info */}
         <div className="space-y-6">
           <h2 className="text-2xl font-semibold">SD Fight Network</h2>

@@ -1,13 +1,14 @@
-import kick from '../../assets/kick.png';
+import kick from '../../assets/kick.jpg';
 import { Link } from 'react-router-dom';
+import "./about.scss";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-white text-gray-800 px-6 py-12">
+    <div className="about-page">
       {/* Hero Section */}
       <section className="text-center max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold text-black mb-4">
-          About <span className="text-amber-500">SD Fight Network</span>
+        <h1 className="page-title">
+          About <span>SD Fight Network</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700">
           The ultimate hub for San Diego's fight community — uniting fighters, Trainer, gyms, and fans. We also offer various fighting related pages such as news, local events, ventues to rent, and equipment to purchase.
