@@ -16,7 +16,7 @@ const Equipment = () => {
   });
 
   return (
-    <div className="equipment-page">
+    <div className="page-container">
       <h1 className="page-title">Shop <span>Equipment</span></h1>
 
       {/* Filters */}

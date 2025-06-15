@@ -4,7 +4,7 @@ import "./about.scss";
 
 const About = () => {
   return (
-    <div className="about-page">
+    <div className="page-container">
       {/* Hero Section */}
       <section className="text-center max-w-4xl mx-auto">
         <h1 className="page-title">

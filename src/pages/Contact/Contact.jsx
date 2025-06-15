@@ -17,7 +17,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-page">
+    <div className="page-container">
       <h1 className="page-title">Contact <span>Us</span></h1>
 
       <div>
@@ -58,7 +58,7 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect"
             />
           </div>
 
@@ -73,7 +73,7 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect"
             />
           </div>
 
@@ -88,7 +88,7 @@ const Contact = () => {
               rows="6"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect"
             ></textarea>
           </div>
 

@@ -55,7 +55,7 @@ export default function Fighters() {
   });
 
   return (
-    <div className="fighters-page">
+    <div className="page-container">
       <h1 className="page-title">Find <span>Fighter</span></h1>
 
       {/* Filter Bar */}

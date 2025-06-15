@@ -65,7 +65,7 @@ export default function TrainersPage() {
   });
 
   return (
-    <div className="trainers-page">
+    <div className="page-container">
       <h1 className="page-title">Find <span>Trainer</span></h1>
 
       {/* Filter Bar */}

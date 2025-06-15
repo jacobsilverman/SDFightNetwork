@@ -99,7 +99,7 @@ const Locations = () => {
   };
 
   return (
-    <div className="locations-page">
+    <div className="page-container">
       <h1 className="page-title">Training <span>Locations</span></h1>
 
       {isLoaded && (
