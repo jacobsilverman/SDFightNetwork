@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import "./Locations.scss";
 
 const containerStyle = {
   width: "100%",
@@ -98,7 +99,7 @@ const Locations = () => {
   };
 
   return (
-    <div className="p-6">
+    <div className="locations-page">
       <h1 className="text-3xl font-bold mb-4">Our Training Locations</h1>
 
       {isLoaded && (
