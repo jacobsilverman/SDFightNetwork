@@ -1,0 +1,68 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Elite Boxing Gloves",
+      "category": "Gloves",
+      "description": "Premium leather gloves for training and sparring.",
+      "price": "$89.99",
+      "image": "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Muay Thai Gloves",
+      "category": "Gloves",
+      "description": "All-purpose gloves perfect for heavy bag and pad work.",
+      "price": "$74.99",
+      "image": "https://images.unsplash.com/photo-1615311536840-c4b381e9fa39?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Hand Wraps (180\")",
+      "category": "Wraps",
+      "description": "High-quality wraps for wrist and knuckle protection.",
+      "price": "$14.99",
+      "image": "https://images.unsplash.com/photo-1583511655927-2fe223f70b6b?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Quick Gel Wraps",
+      "category": "Wraps",
+      "description": "Slip-on wraps with gel padding for quick training.",
+      "price": "$19.99",
+      "image": "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 5,
+      "name": "Muay Thai Pads",
+      "category": "Pads",
+      "description": "Heavy-duty pads perfect for striking drills.",
+      "price": "$119.99",
+      "image": "https://images.unsplash.com/photo-1600907055293-4530c49f8dd3?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 6,
+      "name": "Focus Mitts",
+      "category": "Pads",
+      "description": "Compact and curved for boxing combinations.",
+      "price": "$39.99",
+      "image": "https://images.unsplash.com/photo-1627483263472-7fc426dfd33a?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 7,
+      "name": "Mouth Guard",
+      "category": "Protection",
+      "description": "Boil-and-bite custom fit for protection.",
+      "price": "$9.99",
+      "image": "https://images.unsplash.com/photo-1616004569426-5294a8947bc7?fit=crop&w=800&q=80"
+    },
+    {
+      "id": 8,
+      "name": "Shin Guards",
+      "category": "Protection",
+      "description": "Comfortable and durable for intense sparring.",
+      "price": "$54.99",
+      "image": "https://images.unsplash.com/photo-1659965930975-328ac7f9ad44?fit=crop&w=800&q=80"
+    }
+  ]
+}

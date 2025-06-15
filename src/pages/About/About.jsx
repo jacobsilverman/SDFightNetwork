@@ -1,4 +1,5 @@
 import kick from '../../assets/kick.png';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -9,7 +10,7 @@ const About = () => {
           About <span className="text-amber-500">SD Fight Network</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-700">
-          The ultimate hub for San Diego's fight community — uniting fighters, gyms, and fans through events, news, and local talent.
+          The ultimate hub for San Diego's fight community — uniting fighters, Trainer, gyms, and fans. We also offer various fighting related pages such as news, local events, ventues to rent, and equipment to purchase.
         </p>
       </section>
 
@@ -36,9 +37,14 @@ const About = () => {
         <p className="text-gray-700 max-w-3xl mx-auto">
           Whether you're a fighter, coach, gym owner, or die-hard fan — SD Fight Network is your home base. Stay informed, connect with others, and be part of San Diego’s fight evolution.
         </p>
-        <button className="mt-6 px-6 py-3 bg-black text-white hover:bg-gray-900 font-semibold rounded-full shadow-md transition">
-          Get Involved
-        </button>
+        <div className="mt-10">
+            <Link to="/Fighters" className="m-5 px-6 py-3 bg-black text-white hover:bg-gray-900 font-semibold rounded-full shadow-md transition">
+                Join as Fighter
+            </Link>
+            <Link to="/Trainers" className="m-5 px-6 py-3 bg-black text-white hover:bg-gray-900 font-semibold rounded-full shadow-md transition">
+                Join as Trainer
+            </Link>
+        </div>
       </section>
     </div>
   );
