@@ -1,4 +1,3 @@
-
 @use "./styles/variables" as vars;
 @tailwind base;
 @tailwind components;
@@ -22,6 +21,7 @@
     // fallback or default colors (optional)
   --primary-color: #{vars.$primary-color-light};
   --background-color: #{vars.$background-color-light};
+  --background-secondary-color: #{vars.$background-secondary-color-light};
   --text-color: #{vars.$text-color-light};
 }
 
@@ -29,25 +29,36 @@
 .light-mode {
   --primary-color: #{vars.$primary-color-light};
   --background-color: #{vars.$background-color-light};
+  --background-secondary-color: #{vars.$background-secondary-color-light};
   --text-color: #{vars.$text-color-light};
 }
 
 .dark-mode {
   --primary-color: #{vars.$primary-color-dark};
   --background-color: #{vars.$background-color-dark};
+  --background-secondary-color: #{vars.$background-secondary-color-dark};
   --text-color: #{vars.$text-color-dark};
 }
-
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  justify-content: center;
-  align-items: flex-start;
-  min-width: 100vw;
+  flex-direction: column;
   min-height: 100vh;
-  position: relative;
+
+  
+  .nav-bar {
+    /* header height can be fixed or based on content */
+    flex: 0 0 auto; 
+  }
+
+  .page-container {
+    flex: 1 1 auto; /* take remaining space */
+  }
+
+  .footer {
+    flex: 0 0 auto; /* footer height based on content */
+  }
 }
 
 h1 {

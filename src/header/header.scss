@@ -1,8 +1,11 @@
-@use "../styles/variables" as vars;
-
-nav div div.test {
-    display: flex;
-    justify-content: flex-start;
+nav {
+    &.nav-bar {
+        background-color: var(--background-secondary-color);
+    }
+    div div.home-name {
+        display: flex;
+        justify-content: flex-start;
+    }
 }
 
 .nav-tabs-container {

@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 import './Header.scss';
 import { useState } from 'react';
 
-const navItems = ['Home', 'About', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'Contact'];
+const navItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact'];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <>
-      <AppBar component="nav" position="fixed" sx={{ backgroundColor: '#404040' }}>
+      <AppBar component="nav" position="fixed" className="nav-bar">
         <Toolbar>
           <IconButton
             color="inherit"
@@ -55,7 +55,7 @@ const Header = () => {
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-            className="test"
+            className="home-name"
           >
             <Link to="/">SD Fight Network</Link>
           </Typography>
