@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './Fighters.scss';
 import fighter1 from "../../assets/fighter1.png";
+import fighter2 from "../../assets/fighter2.png";
 import fighter1Animation from "../../assets/fighter1-animation.gif";
+import fighter2Animation from "../../assets/fighter2-animation.gif";
 
 const dummyFighters = [
   {
@@ -14,6 +16,8 @@ const dummyFighters = [
     yearsTraining: 5,
     location: 'San Diego, CA',
     gym: 'North Park MMA',
+    profileImage: fighter1,
+    profileGif: fighter1Animation
   },
   {
     id: 2,
@@ -25,6 +29,8 @@ const dummyFighters = [
     yearsTraining: 3,
     location: 'La Jolla, CA',
     gym: 'Shogun Combat Club',
+    profileImage: fighter2,
+    profileGif: fighter2Animation
   },
   // Add more fighters as needed
 ];
@@ -79,12 +85,12 @@ export default function Fighters() {
 
       {/* Fighter Cards */}
       <div className="fighter-list">
-        {filteredFighters.map(fighter => (
+        {filteredFighters.map((fighter, index) => (
           <div key={fighter.id} className="fighter-card">
             <div className="fighter-name">{fighter.name}</div>
             <div className="fighter-profile">
-              <img src={fighter1} className="fighter-image" />
-              <img src={fighter1Animation} className="fighter-animation" />
+              <img src={fighter.profileImage} className="fighter-image" />
+              <img src={fighter.profileGif}  className="fighter-animation" />
             </div>
             <p><strong>Height:</strong> {fighter.height}</p> 
             <p><strong>Weight:</strong> {fighter.weight}</p>
