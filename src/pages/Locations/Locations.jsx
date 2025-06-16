@@ -62,7 +62,7 @@ const center = {
 
 
 const Locations = () => {
-  const [radius, setRadius] = useState(5); // miles
+  const [radius, setRadius] = useState(500); // miles
   const [searchLat, setSearchLat] = useState(center.lat);
   const [searchLng, setSearchLng] = useState(center.lng);
 
@@ -108,7 +108,7 @@ const Locations = () => {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={{ lat: searchLat, lng: searchLng }}
-          zoom={12}
+          zoom={9}
         >
           {filteredLocations?.map((loc) => (
             <Marker key={loc.id} position={{ lat: loc.lat, lng: loc.lng }} />
