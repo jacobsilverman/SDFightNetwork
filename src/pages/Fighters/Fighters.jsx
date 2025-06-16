@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Fighters.scss';
+import fighter1 from "../../assets/fighter1.png";
+import fighter1Animation from "../../assets/fighter1-animation.gif";
 
 const dummyFighters = [
   {
@@ -79,8 +81,12 @@ export default function Fighters() {
       <div className="fighter-list">
         {filteredFighters.map(fighter => (
           <div key={fighter.id} className="fighter-card">
-            <h3>{fighter.name}</h3>
-            <p><strong>Height:</strong> {fighter.height}</p>
+            <div className="fighter-name">{fighter.name}</div>
+            <div className="fighter-profile">
+              <img src={fighter1} className="fighter-image" />
+              <img src={fighter1Animation} className="fighter-animation" />
+            </div>
+            <p><strong>Height:</strong> {fighter.height}</p> 
             <p><strong>Weight:</strong> {fighter.weight}</p>
             <p><strong>Styles:</strong> {fighter.fightingStyles.join(', ')}</p>
             <p><strong>Age:</strong> {fighter.age}</p>
