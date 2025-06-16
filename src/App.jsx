@@ -16,16 +16,18 @@ export default function FightSite() {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Fighters" element={<Fighters />} />
-        <Route path="/Trainers" element={<Trainers />} />
-        <Route path="/Locations" element={<Locations />} />
-        <Route path="/Equipment" element={<Equipment />} />
-        <Route path="/Contact" element={<Contact />} />
-      </Routes>
+      <main className="page">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Fighters" element={<Fighters />} />
+          <Route path="/Trainers" element={<Trainers />} />
+          <Route path="/Locations" element={<Locations />} />
+          <Route path="/Equipment" element={<Equipment />} />
+          <Route path="/Contact" element={<Contact />} />
+        </Routes>
+      </main>
       <Footer />
     </Router>
   );

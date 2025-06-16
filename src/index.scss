@@ -40,20 +40,24 @@
   --text-color: #{vars.$text-color-dark};
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  
   .nav-bar {
     /* header height can be fixed or based on content */
     flex: 0 0 auto; 
   }
 
-  .page-container {
-    flex: 1 1 auto; /* take remaining space */
+  .page {
+    flex: 1 1 auto;
   }
 
   .footer {
