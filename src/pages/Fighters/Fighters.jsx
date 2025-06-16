@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './Fighters.scss';
 import fighter1 from "../../assets/fighter1.png";
 import fighter2 from "../../assets/fighter2.png";
+import fighter3 from "../../assets/fighter3.png";
 import fighter1Animation from "../../assets/fighter1-animation.gif";
 import fighter2Animation from "../../assets/fighter2-animation.gif";
+import fighter3Animation from "../../assets/fighter3-animation.gif";
 
 const dummyFighters = [
   {
@@ -21,16 +23,29 @@ const dummyFighters = [
   },
   {
     id: 2,
-    name: 'Maria Lee',
-    height: "5'6\"",
+    name: 'Steve Hoffman',
+    height: "5'7\"",
     weight: '135 lbs',
     fightingStyles: ['Muay Thai', 'MMA'],
-    age: 24,
+    age: 44,
     yearsTraining: 3,
     location: 'La Jolla, CA',
     gym: 'Shogun Combat Club',
     profileImage: fighter2,
     profileGif: fighter2Animation
+  },
+  {
+    id: 3,
+    name: 'Cambell Ownens',
+    height: "6'1\"",
+    weight: '200 lbs',
+    fightingStyles: ['Muay Thai', 'MMA'],
+    age: 32,
+    yearsTraining: 5,
+    location: 'La Jolla, CA',
+    gym: 'Shogun Combat Club',
+    profileImage: fighter3,
+    profileGif: fighter3Animation
   },
   // Add more fighters as needed
 ];
@@ -45,12 +60,17 @@ export default function Fighters() {
     maxAge: '',
     minYears: '',
     maxYears: '',
+    show: false,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters(prev => ({ ...prev, [name]: value }));
   };
+
+  const showFilter = (display) => {
+    setFilters(prev => ({ ...prev, show: display }));
+  }
 
   const filteredFighters = fighters.filter(f => {
     const matchesStyle = !filters.fightingStyle || f.fightingStyles.includes(filters.fightingStyle);
@@ -64,23 +84,26 @@ export default function Fighters() {
 
   return (
     <div className="page-container">
-      <h1 className="page-title">Find <span>Fighter</span></h1>
+      <h1 className="page-title">Find <span>Fighters</span></h1>
 
-      {/* Filter Bar */}
-      <div className="filter-bar">
-        <input type="text" name="location" placeholder="Location" onChange={handleChange} />
-        <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />
-        <select name="fightingStyle" onChange={handleChange}>
-          <option value="">Any Style</option>
-          <option value="Boxing">Boxing</option>
-          <option value="Muay Thai">Muay Thai</option>
-          <option value="BJJ">BJJ</option>
-          <option value="MMA">MMA</option>
-        </select>
-        <input type="number" name="minAge" placeholder="Min Age" onChange={handleChange} />
-        <input type="number" name="maxAge" placeholder="Max Age" onChange={handleChange} />
-        <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
-        <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} />
+      <div className="filter-container">
+        {!filters.show && <button onClick={() => showFilter(true)} type="submit">Filter</button>}
+        {filters.show && <button onClick={() => showFilter(false)}>Hide</button>}
+        {filters.show && <div className="filter-bar">
+          <select name="fightingStyle" onChange={handleChange}>
+            <option value="">Any Style</option>
+            <option value="Boxing">Boxing</option>
+            <option value="Muay Thai">Muay Thai</option>
+            <option value="BJJ">BJJ</option>
+            <option value="MMA">MMA</option>
+          </select>
+          <input type="text" name="location" placeholder="Location" onChange={handleChange} />
+          <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />
+          <input type="number" name="minAge" placeholder="Min Age" onChange={handleChange} />
+          <input type="number" name="maxAge" placeholder="Max Age" onChange={handleChange} />
+          <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
+          <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} />
+        </div>}
       </div>
 
       {/* Fighter Cards */}
@@ -92,11 +115,11 @@ export default function Fighters() {
               <img src={fighter.profileImage} className="fighter-image" />
               <img src={fighter.profileGif}  className="fighter-animation" />
             </div>
+            <p><strong>Age:</strong> {fighter.age}</p>
             <p><strong>Height:</strong> {fighter.height}</p> 
             <p><strong>Weight:</strong> {fighter.weight}</p>
-            <p><strong>Styles:</strong> {fighter.fightingStyles.join(', ')}</p>
-            <p><strong>Age:</strong> {fighter.age}</p>
             <p><strong>Years Training:</strong> {fighter.yearsTraining}</p>
+            <p><strong>Styles:</strong> {fighter.fightingStyles.join(', ')}</p>
             <p><strong>Location:</strong> {fighter.location}</p>
             <p><strong>Gym:</strong> {fighter.gym}</p>
           </div>

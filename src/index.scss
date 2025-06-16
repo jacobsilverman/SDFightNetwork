@@ -70,6 +70,16 @@ h1 {
   line-height: 1.1;
 }
 
+button {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 @keyframes gradient-wave {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
