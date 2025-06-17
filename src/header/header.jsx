@@ -30,8 +30,13 @@ const Header = () => {
       </Typography>
       <List>
         {navItems.map((item) => (
-          <ListItem button key={item}>
-            <ListItemText primary={<Link to={"/"+item}>{item}</Link>} />
+          <ListItem 
+            button 
+            key={item} 
+            component={Link} 
+            to={`/${item.toLowerCase()}`} // optional: lowercase for cleaner URLs
+          >
+            <ListItemText primary={item} />
           </ListItem>
         ))}
       </List>
