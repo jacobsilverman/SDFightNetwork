@@ -15,10 +15,10 @@ export const trainersData = {
     {
       "id": 1,
       "name": "Michael",
-      "height": "5'9\"",
+      "height": "5'7\"",
       "weight": "135 lbs",
       "fightingStyles": ["Muay Thai", "BJJ"],
-      "age": 24,
+      "age": 21,
       "yearsTraining": 1,
       "location": "La Jolla, CA",
       "gym": "Victory MMA",
