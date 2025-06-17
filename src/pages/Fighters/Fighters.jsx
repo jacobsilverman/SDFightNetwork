@@ -59,7 +59,7 @@ export default function Fighters() {
       </div>
 
       {/* Fighter Cards */}
-      <div className="fighter-list">
+      <div className="fighter-list"> 
         {filteredFighters.map((fighter, index) => (
           <div key={fighter.id} className="fighter-card">
             <div className="fighter-name">{fighter.name}</div>

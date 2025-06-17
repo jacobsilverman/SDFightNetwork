@@ -44,13 +44,16 @@
       }
       .fighter-animation {
         display: none;
+        visibility: hidden;
       }
       &:hover {
         img.fighter-image {
           display: none;
+          visibility: hidden;
         }
         img.fighter-animation {
           display: block;
+          visibility: visible;
         }
       }
     }

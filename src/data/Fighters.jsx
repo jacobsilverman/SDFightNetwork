@@ -4,7 +4,10 @@ import fighter2 from "../assets/fighter2.png";
 import fighter2Animation from "../assets/fighter2-animation.gif";
 import fighter3 from "../assets/fighter3.png";
 import fighter3Animation from "../assets/fighter3-animation.gif";
+import michael from "../assets/fighters/Michael.png";
+import michaelAnimation from "../assets/fighters/Michael.gif";
 
+ 
 export const fightersData = {
   "fighters": [
     {
@@ -45,6 +48,19 @@ export const fightersData = {
       "gym": "Shogun Combat Club",
       "profileImage": fighter3,
       "profileGif": fighter3Animation
+    },
+     {
+      "id": 4,
+      "name": "Michael",
+      "height": "5'9\"",
+      "weight": "135 lbs",
+      "fightingStyles": ["Muay Thai", "BJJ"],
+      "age": 24,
+      "yearsTraining": 1,
+      "location": "La Jolla, CA",
+      "gym": "Victory MMA",
+      "profileImage": michael,
+      "profileGif": michaelAnimation
     }
   ]
 }

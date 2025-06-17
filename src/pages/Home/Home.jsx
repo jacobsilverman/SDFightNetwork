@@ -10,6 +10,17 @@ import boxing2 from "../../assets/boxingAnimation2.gif";
 import boxing3 from "../../assets/boxingAnimation3.gif"
 
 const Home = () => {
+
+    const lines = [
+        "Train",
+        "with",
+        "Purpose",
+        "and",
+        "Evolve",
+        "Constantly"
+    ];
+    const shimmerCls = () => {return `font-extrabold bg-gradient-to-r from-yellow-700 via-black to-black bg-[length:150%_100%] bg-clip-text text-transparent animate-gradient`};
+
     const SignUpCard = ({title, desc, button}) => (
         <div className="min-h-screen flex items-center justify-center px-4">
             <div className="relative w-full max-w-md p-[2px] rounded-2xl overflow-hidden shadow-2xl group hover:scale-105 transition-transform duration-300">
@@ -32,16 +43,6 @@ const Home = () => {
             </div>
         </div>
     );
-
-    const lines = [
-        "Train",
-        "with",
-        "Purpose",
-        "and",
-        "Evolve",
-        "Constantly"
-    ];
-    const shimmerCls = (len, index) => {return `font-extrabold bg-gradient-to-r from-yellow-700 via-black to-black bg-[length:150%_100%] bg-clip-text text-transparent animate-gradient`};
 
     const Hero = () => (
         <div className="relative h-screen w-screen overflow-hidden bg-black">
@@ -81,7 +82,6 @@ const Home = () => {
                             {line}
                         </motion.div>
                     )})}
-                    
                 </motion.h1>
             </div>
         </div>
@@ -188,9 +188,9 @@ const Home = () => {
 
     return (
         <div>
-            <Hero />
-            <StylesSection />
             <SignUpSection />
+            <StylesSection />
+            {/* <Hero /> */}
         </div>
     );
 
