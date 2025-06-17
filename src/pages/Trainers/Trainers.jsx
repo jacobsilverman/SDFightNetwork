@@ -1,53 +1,19 @@
 import React, { useState } from 'react';
 import './Trainers.scss';
+import {trainersData} from "../../data/Trainers.jsx";
 
-const dummyTrainers = [
-  {
-    id: 1,
-    name: 'Coach Amanda Rivera',
-    height: `5'7"`,
-    weight: '150 lbs',
-    stylesTaught: ['Muay Thai', 'Boxing'],
-    age: 34,
-    yearsTraining: 12,
-    location: 'Los Angeles, CA',
-    gym: 'Elite Combat Club',
-    contactLink: 'mailto:amanda@elitecombat.com',
-  },
-  {
-    id: 2,
-    name: 'Sensei David Kim',
-    height: `5'9"`,
-    weight: '165 lbs',
-    stylesTaught: ['BJJ', 'MMA'],
-    age: 40,
-    yearsTraining: 18,
-    location: 'San Diego, CA',
-    gym: 'Ground Force Academy',
-    contactLink: 'mailto:kim@groundforce.com',
-  },
-  {
-    id: 3,
-    name: 'Coach Malik Johnson',
-    height: `6'0"`,
-    weight: '180 lbs',
-    stylesTaught: ['Boxing', 'Kickboxing'],
-    age: 29,
-    yearsTraining: 10,
-    location: 'San Francisco, CA',
-    gym: 'Iron Fist Training',
-    contactLink: 'mailto:malik@ironfist.com',
-  },
-];
-
-export default function TrainersPage() {
-  const [trainers, setTrainers] = useState(dummyTrainers);
+export default function Trainers() {
+  const [trainers, setTrainers] = useState(trainersData.trainers);
+  const [showModal, setShowModal] = useState(false);
   const [filters, setFilters] = useState({
-    style: '',
+    fightingStyle: '',
     location: '',
     gym: '',
+    minAge: '',
+    maxAge: '',
     minYears: '',
     maxYears: '',
+    show: false,
   });
 
   const handleChange = (e) => {
@@ -55,70 +21,103 @@ export default function TrainersPage() {
     setFilters(prev => ({ ...prev, [name]: value }));
   };
 
-  const filteredTrainers = trainers.filter(t => {
-    const matchesStyle = !filters.style || t.stylesTaught.includes(filters.style);
-    const matchesLocation = !filters.location || t.location.toLowerCase().includes(filters.location.toLowerCase());
-    const matchesGym = !filters.gym || t.gym.toLowerCase().includes(filters.gym.toLowerCase());
-    const matchesYears = (!filters.minYears || t.yearsTraining >= +filters.minYears) &&
-                         (!filters.maxYears || t.yearsTraining <= +filters.maxYears);
-    return matchesStyle && matchesLocation && matchesGym && matchesYears;
+  const showFilter = (display) => {
+    setFilters(prev => ({ ...prev, show: display }));
+  }
+
+  const filteredTrainers = trainers.filter(f => {
+    const matchesStyle = !filters.fightingStyle || f.fightingStyles.includes(filters.fightingStyle);
+    const matchesLocation = !filters.location || f.location.toLowerCase().includes(filters.location.toLowerCase());
+    const matchesGym = !filters.gym || f.gym.toLowerCase().includes(filters.gym.toLowerCase());
+    const matchesAge = (!filters.minAge || f.age >= +filters.minAge) && (!filters.maxAge || f.age <= +filters.maxAge);
+    const matchesYears = (!filters.minYears || f.yearsTraining >= +filters.minYears) && (!filters.maxYears || f.yearsTraining <= +filters.maxYears);
+
+    return matchesStyle && matchesLocation && matchesGym && matchesAge && matchesYears;
   });
 
   return (
     <div className="page-container">
       <h1 className="page-title">Find <span>Trainers</span></h1>
 
-      {/* Filter Bar */}
-      <div className="filter-bar">
-        <input type="text" name="location" placeholder="Location" onChange={handleChange} />
-        <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />
-        <select name="style" onChange={handleChange}>
-          <option value="">Any Style</option>
-          <option value="Boxing">Boxing</option>
-          <option value="Muay Thai">Muay Thai</option>
-          <option value="BJJ">BJJ</option>
-          <option value="MMA">MMA</option>
-          <option value="Kickboxing">Kickboxing</option>
-        </select>
-        <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
-        <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} />
+      <div className="filter-container">
+        {!filters.show && <button onClick={() => showFilter(true)} type="submit">Filter</button>}
+        {filters.show && <button onClick={() => showFilter(false)}>Hide</button>}
+        
+        {filters.show && <div className="filter-bar">
+          <select name="fightingStyle" onChange={handleChange}>
+            <option value="">Any Style</option>
+            <option value="Boxing">Boxing</option>
+            <option value="Muay Thai">Muay Thai</option>
+            <option value="BJJ">BJJ</option>
+            <option value="MMA">MMA</option>
+          </select>
+          <input type="text" name="location" placeholder="Location" onChange={handleChange} />
+          <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />
+          <input type="number" name="minAge" placeholder="Min Age" onChange={handleChange} />
+          <input type="number" name="maxAge" placeholder="Max Age" onChange={handleChange} />
+          <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
+          <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} />
+        </div>}
+        <button
+            onClick={() => setShowModal((prev) => !prev)}
+            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          >
+            Sign Up as a Trainer
+        </button>
       </div>
 
       {/* Trainer Cards */}
-      <div className="trainer-list">
-        {filteredTrainers.map(trainer => (
+      <div className="trainer-list"> 
+        {filteredTrainers.map((trainer, index) => (
           <div key={trainer.id} className="trainer-card">
-            <h3>{trainer.name}</h3>
-            <p><strong>Height:</strong> {trainer.height}</p>
-            <p><strong>Weight:</strong> {trainer.weight}</p>
-            <p><strong>Styles Taught:</strong> {trainer.stylesTaught.join(', ')}</p>
+            <div className="trainer-name">{trainer.name}</div>
+            <div className="trainer-profile">
+              <img src={trainer.profileImage} className="trainer-image" />
+              <img src={trainer.profileGif}  className="trainer-animation" />
+            </div>
             <p><strong>Age:</strong> {trainer.age}</p>
+            <p><strong>Height:</strong> {trainer.height}</p> 
+            <p><strong>Weight:</strong> {trainer.weight}</p>
             <p><strong>Years Training:</strong> {trainer.yearsTraining}</p>
+            <p><strong>Styles:</strong> {trainer.fightingStyles.join(', ')}</p>
             <p><strong>Location:</strong> {trainer.location}</p>
             <p><strong>Gym:</strong> {trainer.gym}</p>
-            <a href={trainer.contactLink} target="_blank" rel="noopener noreferrer">
-              Contact Trainer
-            </a>
+            <p><strong>Contact:</strong> {trainer.contact}</p>
           </div>
         ))}
       </div>
 
-      {/* Sign Up Form */}
-      <div className="sign-up">
-        <h2>Sign Up as a Trainer</h2>
-        <form>
-          <input type="text" placeholder="Name" />
-          <input type="text" placeholder="Height (e.g., 5'11)" />
-          <input type="text" placeholder="Weight (e.g., 170 lbs)" />
-          <input type="text" placeholder="Styles Taught (comma separated)" />
-          <input type="number" placeholder="Age" />
-          <input type="number" placeholder="Years Training" />
-          <input type="text" placeholder="Location" />
-          <input type="text" placeholder="Gym" />
-          <input type="text" placeholder="Contact Link (email or website)" />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      {showModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        {/* Modal Content */}
+        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+          <button
+            onClick={() => setShowModal((prev)  => !prev)}
+            className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl"
+          >
+            &times;
+          </button>
+
+          <h2 className="text-2xl font-semibold mb-4">Sign Up as a Trainer</h2>
+
+          <form className="flex flex-col gap-3">
+            <input type="text" placeholder="Name" className="border p-2 rounded" />
+            <input type="text" placeholder="Location" className="border p-2 rounded" />
+            <input type="text" placeholder="Gym" className="border p-2 rounded" />
+            <input type="number" placeholder="Age" className="border p-2 rounded" />
+            <input type="number" placeholder="Years Training" className="border p-2 rounded" />
+            <input type="text" placeholder="Fighting Styles (comma separated)" className="border p-2 rounded" />
+            <input type="text" placeholder="Height" className="border p-2 rounded" />
+            <input type="text" placeholder="Weight" className="border p-2 rounded" />
+            <button
+              type="submit"
+              className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>)}
     </div>
   );
 }

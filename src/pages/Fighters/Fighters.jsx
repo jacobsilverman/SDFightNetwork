@@ -4,6 +4,7 @@ import {fightersData} from "../../data/Fighters.jsx";
 
 export default function Fighters() {
   const [fighters, setFighters] = useState(fightersData.fighters);
+  const [showModal, setShowModal] = useState(false);
   const [filters, setFilters] = useState({
     fightingStyle: '',
     location: '',
@@ -41,6 +42,7 @@ export default function Fighters() {
       <div className="filter-container">
         {!filters.show && <button onClick={() => showFilter(true)} type="submit">Filter</button>}
         {filters.show && <button onClick={() => showFilter(false)}>Hide</button>}
+        
         {filters.show && <div className="filter-bar">
           <select name="fightingStyle" onChange={handleChange}>
             <option value="">Any Style</option>
@@ -56,6 +58,12 @@ export default function Fighters() {
           <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
           <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} />
         </div>}
+        <button
+            onClick={() => setShowModal((prev) => !prev)}
+            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+          >
+            Sign Up as a Fighter
+        </button>
       </div>
 
       {/* Fighter Cards */}
@@ -78,22 +86,37 @@ export default function Fighters() {
         ))}
       </div>
 
-      {/* Sign Up Form */}
-      <div className="sign-up">
-        <h2>Sign Up as a Fighter</h2>
-        {/* You can wire this up with a form handler or Firebase later */}
-        <form>
-          <input type="text" placeholder="Name" />
-          <input type="text" placeholder="Location" />
-          <input type="text" placeholder="Gym" />
-          <input type="number" placeholder="Age" />
-          <input type="number" placeholder="Years Training" />
-          <input type="text" placeholder="Fighting Styles (comma separated)" />
-          <input type="text" placeholder="Height" />
-          <input type="text" placeholder="Weight" />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
+      {showModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        {/* Modal Content */}
+        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
+          <button
+            onClick={() => setShowModal((prev)  => !prev)}
+            className="absolute top-2 right-2 text-gray-600 hover:text-black text-xl"
+          >
+            &times;
+          </button>
+
+          <h2 className="text-2xl font-semibold mb-4">Sign Up as a Fighter</h2>
+
+          <form className="flex flex-col gap-3">
+            <input type="text" placeholder="Name" className="border p-2 rounded" />
+            <input type="text" placeholder="Location" className="border p-2 rounded" />
+            <input type="text" placeholder="Gym" className="border p-2 rounded" />
+            <input type="number" placeholder="Age" className="border p-2 rounded" />
+            <input type="number" placeholder="Years Training" className="border p-2 rounded" />
+            <input type="text" placeholder="Fighting Styles (comma separated)" className="border p-2 rounded" />
+            <input type="text" placeholder="Height" className="border p-2 rounded" />
+            <input type="text" placeholder="Weight" className="border p-2 rounded" />
+            <button
+              type="submit"
+              className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>)}
     </div>
   );
 }

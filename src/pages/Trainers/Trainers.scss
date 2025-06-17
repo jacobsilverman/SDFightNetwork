@@ -1,13 +1,21 @@
 .page-container {
-  .filter-bar {
+  .filter-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    min-height: 50px;
+    
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
 
-    input, select {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 0.5rem;
+      input, select {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+      }
     }
   }
 
@@ -22,6 +30,33 @@
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    .trainer-name {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .trainer-profile {
+      display: flex;
+      justify-content: center;
+      img {
+        height: 265px;
+      }
+      .trainer-animation {
+        display: none;
+        visibility: hidden;
+      }
+      &:hover {
+        img.trainer-image {
+          display: none;
+          visibility: hidden;
+        }
+        img.trainer-animation {
+          display: block;
+          visibility: visible;
+        }
+      }
+    }
   }
 
   .sign-up {
