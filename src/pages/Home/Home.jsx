@@ -179,7 +179,7 @@ const Home = () => {
                         button={(<Link to="/fighters">Fight</Link>)} />
                     <SignUpCard
                         title="Sign up to Train"
-                        desc="We place you in individualized classes based on your skill level"
+                        desc="We will find individualized classes based on your skill level"
                         button={(<Link to="/trainers">Train</Link>)} />
                 </div>
             </div>

@@ -109,6 +109,7 @@ export default function Trainers() {
             <input type="text" placeholder="Fighting Styles (comma separated)" className="border p-2 rounded" />
             <input type="text" placeholder="Height" className="border p-2 rounded" />
             <input type="text" placeholder="Weight" className="border p-2 rounded" />
+            <input type="text" placeholder="Phone Number" className="border p-2 rounded" />
             <button
               type="submit"
               className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"

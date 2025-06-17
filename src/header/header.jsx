@@ -59,7 +59,7 @@ const Header = () => {
           >
             <Link to="/">SD Fight Network</Link>
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }} className="nav-tabs-container">
+          <Box sx={{ display: { xs: 'none', sm: 'flex' } }} className="nav-tabs-container">
             {navItems.map((item) => (
               
               <Link to={`/${item}`} key={item} sx={{ color: '#fff' }} className='nav-tab'>

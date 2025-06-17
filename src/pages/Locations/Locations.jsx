@@ -2,69 +2,23 @@ import React, { useState, useMemo } from "react";
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 import "./Locations.scss";
 import gymData from '../../data/Gyms.json';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const containerStyle = {
-  width: "100%",
+  // width: "100%",
   height: "500px",
 };
 
 const center = {
-  lat: 32.7157, // Example: San Diego
+  lat: 32.7157,
   lng: -117.1611,
 };
-
-
-// // Add this dummy data at the top
-// const dummyLocations = [
-//   {
-//     id: 1,
-//     name: "Downtown Gym",
-//     lat: 32.7157,
-//     lng: -117.1611,
-//     address: "123 Main St, San Diego, CA",
-//     arts: ["Boxing", "Muay Thai", "BJJ"],
-//     hours: "Mon-Fri: 6am–10pm, Sat-Sun: 8am–6pm",
-//     phone: "(619) 555-1234",
-//     email: "contact@downtowngym.com",
-//     reviews: 4.7,
-//     website: "https://downtowngym.com",
-//     image: "https://via.placeholder.com/400x200?text=Downtown+Gym",
-//   },
-//   {
-//     id: 2,
-//     name: "North Park Studio",
-//     lat: 32.7433,
-//     lng: -117.1290,
-//     address: "456 North Ave, San Diego, CA",
-//     arts: ["MMA", "BJJ"],
-//     hours: "Mon-Fri: 5am–9pm, Sat: 7am–5pm",
-//     phone: "(619) 555-5678",
-//     email: "info@northparkmma.com",
-//     reviews: 4.9,
-//     website: "https://northparkmma.com",
-//     image: "https://via.placeholder.com/400x200?text=North+Park+Studio",
-//   },
-//   {
-//     id: 3,
-//     name: "Ocean Beach Center",
-//     lat: 32.7505,
-//     lng: -117.2510,
-//     address: "789 Beach Blvd, San Diego, CA",
-//     arts: ["Boxing", "Muay Thai"],
-//     hours: "Mon-Fri: 6am–8pm, Sun: 9am–3pm",
-//     phone: "(619) 555-9876",
-//     email: "hello@oceanbeachcenter.com",
-//     reviews: 4.5,
-//     website: "https://oceanbeachcenter.com",
-//     image: "https://via.placeholder.com/400x200?text=Ocean+Beach+Center",
-//   },
-// ];
-
 
 const Locations = () => {
   const [radius, setRadius] = useState(500); // miles
   const [searchLat, setSearchLat] = useState(center.lat);
   const [searchLng, setSearchLng] = useState(center.lng);
+  const [show, setShow] = useState({gyms: true, private: true});
 
   const [newLocation, setNewLocation] = useState({
     name: "",
@@ -97,7 +51,6 @@ const Locations = () => {
   const handleNewLocationSubmit = (e) => {
     e.preventDefault();
     console.log("Register new location:", newLocation);
-    // Optionally push it to state or backend
   };
 
   return (
@@ -117,7 +70,7 @@ const Locations = () => {
       )}
 
       <div className="mt-6 space-y-4">
-        <div className="flex flex-col md:flex-row items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-around w-screen">
           <label>
             Latitude:{" "}
             <input
@@ -145,10 +98,23 @@ const Locations = () => {
               className="border p-1 rounded"
             />
           </label>
+          <button>
+            Register New Training Location
+          </button>
         </div>
 
-        <h2 className="text-2xl font-semibold mt-10 mb-4">Nearby Locations</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-2xl font-semibold mt-10 mb-4 cursor-pointer flex justify-center items-center" onClick={() => {setShow(prev => ({...prev,gyms: !prev.gyms}))}}>
+          <div className="mr-5">San Diego Combat Gyms</div>
+          <div>
+            {show.gyms ? (
+              <FaEye />
+            ) : (
+              <FaEyeSlash />
+            )}
+          </div>
+        </h2>
+        
+        {show.gyms && <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredLocations?.length === 0 ? (
             <p>No gyms found within selected radius.</p>
         ) : (
@@ -185,7 +151,7 @@ const Locations = () => {
             </div>
             ))
         )}
-        </div>
+        </div>}
 
 
         <h2 className="text-xl font-semibold mt-6">Register a New Location</h2>
