@@ -42,7 +42,6 @@ const Footer = () => {
         
 
         <div className="footer__section footer__contact">
-          <h4 className="footer__subtitle">Contact Us</h4>
           <address>
             Solana Beach, San Diego, CA 92075<br />
             Phone: <a href="tel:+17608157801">(760) 815-7801</a><br />

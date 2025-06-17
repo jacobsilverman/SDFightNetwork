@@ -10,18 +10,18 @@ import michaelAnimation from "../assets/fighters/Michael.gif";
  
 export const fightersData = {
   "fighters": [
-    {
+     {
       "id": 1,
-      "name": "Alex Johnson",
-      "height": "5'10\"",
-      "weight": "170 lbs",
-      "fightingStyles": ["Boxing", "BJJ"],
-      "age": 28,
-      "yearsTraining": 5,
-      "location": "San Diego, CA",
-      "gym": "North Park MMA",
-      "profileImage": fighter1,
-      "profileGif": fighter1Animation
+      "name": "Michael",
+      "height": "5'9\"",
+      "weight": "135 lbs",
+      "fightingStyles": ["Muay Thai", "BJJ"],
+      "age": 24,
+      "yearsTraining": 1,
+      "location": "La Jolla, CA",
+      "gym": "Victory MMA",
+      "profileImage": michael,
+      "profileGif": michaelAnimation
     },
     {
       "id": 2,
@@ -49,18 +49,18 @@ export const fightersData = {
       "profileImage": fighter3,
       "profileGif": fighter3Animation
     },
-     {
+    {
       "id": 4,
-      "name": "Michael",
-      "height": "5'9\"",
-      "weight": "135 lbs",
-      "fightingStyles": ["Muay Thai", "BJJ"],
-      "age": 24,
-      "yearsTraining": 1,
-      "location": "La Jolla, CA",
-      "gym": "Victory MMA",
-      "profileImage": michael,
-      "profileGif": michaelAnimation
-    }
+      "name": "Alex Johnson",
+      "height": "5'10\"",
+      "weight": "170 lbs",
+      "fightingStyles": ["Boxing", "BJJ"],
+      "age": 28,
+      "yearsTraining": 5,
+      "location": "San Diego, CA",
+      "gym": "North Park MMA",
+      "profileImage": fighter1,
+      "profileGif": fighter1Animation
+    },
   ]
 }
