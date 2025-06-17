@@ -31,7 +31,7 @@ const Header = () => {
       <List>
         {navItems.map((item) => (
           <ListItem button key={item}>
-            <ListItemText primary={item} />
+            <ListItemText primary={<Link to={"/"+item}>{item}</Link>} />
           </ListItem>
         ))}
       </List>
@@ -47,7 +47,7 @@ const Header = () => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { md: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -59,9 +59,8 @@ const Header = () => {
           >
             <Link to="/">SD Fight Network</Link>
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'flex' } }} className="nav-tabs-container">
+          <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }} className="nav-tabs-container">
             {navItems.map((item) => (
-              
               <Link to={`/${item}`} key={item} sx={{ color: '#fff' }} className='nav-tab'>
                 {item}
               </Link>
@@ -75,7 +74,7 @@ const Header = () => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         sx={{
-          display: { xs: 'block', sm: 'none' },
+          display: { xs: 'block', sm: 'block' },
           '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 }
         }}
       >

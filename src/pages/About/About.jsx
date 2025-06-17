@@ -24,7 +24,7 @@ const About = () => {
         <p className="text-gray-700 max-w-3xl mx-auto">
           Whether you're a fighter, coach, gym owner, or die-hard fan — SD Fight Network is your home base. Stay informed, connect with others, and be part of San Diego’s fight evolution.
         </p>
-        <div className="mt-10">
+        <div className="mt-10 flex justify-center">
             <Link to="/Fighters" className="m-5 px-6 py-3 bg-black text-white hover:bg-gray-900 font-semibold rounded-full shadow-md transition">
                 Join as Fighter
             </Link>
