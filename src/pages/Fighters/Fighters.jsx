@@ -75,13 +75,18 @@ export default function Fighters() {
               <img src={fighter.profileImage} className="fighter-image" />
               <img src={fighter.profileGif}  className="fighter-animation" />
             </div>
-            <p><strong>Age:</strong> {fighter.age}</p>
-            <p><strong>Height:</strong> {fighter.height}</p> 
-            <p><strong>Weight:</strong> {fighter.weight}</p>
-            <p><strong>Years Training:</strong> {fighter.yearsTraining}</p>
-            <p><strong>Styles:</strong> {fighter.fightingStyles.join(', ')}</p>
-            <p><strong>Location:</strong> {fighter.location}</p>
-            <p><strong>Gym:</strong> {fighter.gym}</p>
+            <div className="grid grid-cols-2">
+              <p><strong>Age:</strong> {fighter.age}</p>
+              <p><strong>Record:</strong> {fighter.record}</p>
+              <p><strong>Height:</strong> {fighter.height}</p> 
+              <p><strong>Weight:</strong> {fighter.weight}</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-1">
+              <p><strong>Styles:</strong> {fighter.fightingStyles.join(', ')}</p>
+              <p><strong>Location:</strong> {fighter.location}</p>
+              <p><strong>Gym:</strong> {fighter.gym}</p>
+              <p><strong>Contact:</strong> {fighter.contact}</p>
+            </div>
           </div>
         ))}
       </div>

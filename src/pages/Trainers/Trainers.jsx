@@ -75,14 +75,19 @@ export default function Trainers() {
               <img src={trainer.profileImage} className="trainer-image" />
               <img src={trainer.profileGif}  className="trainer-animation" />
             </div>
-            <p><strong>Age:</strong> {trainer.age}</p>
-            <p><strong>Height:</strong> {trainer.height}</p> 
-            <p><strong>Weight:</strong> {trainer.weight}</p>
-            <p><strong>Years Training:</strong> {trainer.yearsTraining}</p>
-            <p><strong>Styles:</strong> {trainer.fightingStyles.join(', ')}</p>
-            <p><strong>Location:</strong> {trainer.location}</p>
-            <p><strong>Gym:</strong> {trainer.gym}</p>
-            <p><strong>Contact:</strong> {trainer.contact}</p>
+
+            <div className="grid grid-cols-2">
+              <p><strong>Age:</strong> {trainer.age}</p>
+              <p><strong>Record:</strong> {trainer.record}</p>
+              <p><strong>Height:</strong> {trainer.height}</p> 
+              <p><strong>Weight:</strong> {trainer.weight}</p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-1">
+              <p><strong>Styles:</strong> {trainer.fightingStyles.join(', ')}</p>
+              <p><strong>Location:</strong> {trainer.location}</p>
+              <p><strong>Gym:</strong> {trainer.gym}</p>
+              <p><strong>Contact:</strong> {trainer.contact}</p>
+            </div>
           </div>
         ))}
       </div>

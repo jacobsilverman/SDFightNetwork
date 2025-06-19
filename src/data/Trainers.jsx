@@ -22,6 +22,7 @@ export const trainersData = {
       "yearsTraining": 1,
       "location": "La Jolla, CA",
       "gym": "Victory MMA",
+      "record": "4-0",
       "profileImage": michael,
       "profileGif": michaelAnimation,
       "contact": "(555) 555-5555"
@@ -37,6 +38,7 @@ export const trainersData = {
       "yearsTraining": 3,
       "location": "La Jolla, CA",
       "gym": "Shogun Combat Club",
+      "record": "0-2",
       "profileImage": evan,
       "profileGif": fighter2Animation,
       "contact": "(555) 555-5555"
@@ -51,6 +53,7 @@ export const trainersData = {
       "yearsTraining": 5,
       "location": "La Jolla, CA",
       "gym": "Shogun Combat Club",
+      "record": "1-0",
       "profileImage": kabib,
       "profileGif": fighter3Animation,
       "contact": "(555) 555-5555"
@@ -65,6 +68,7 @@ export const trainersData = {
       "yearsTraining": 5,
       "location": "San Diego, CA",
       "gym": "North Park MMA",
+      "record": "2-0",
       "profileImage": xavier,
       "profileGif": xavierAnimation,
       "contact": "(555) 555-5555"
