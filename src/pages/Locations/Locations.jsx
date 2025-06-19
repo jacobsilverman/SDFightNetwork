@@ -18,6 +18,7 @@ const Locations = () => {
   const [radius, setRadius] = useState(500); // miles
   const [searchLat, setSearchLat] = useState(center.lat);
   const [searchLng, setSearchLng] = useState(center.lng);
+  const [mapCenter, setMapCenter] = useState(center);
   const [show, setShow] = useState({ gyms: true, private: true });
   const [modalOpen, setModalOpen] = useState(false);
   const [newLocation, setNewLocation] = useState({
@@ -72,7 +73,7 @@ const Locations = () => {
       {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
-          center={{ lat: searchLat, lng: searchLng }}
+          center={mapCenter}
           zoom={9}
         >
           {[...filteredGymLocations, ...filteredPrivateLocations]?.map((loc) => (
