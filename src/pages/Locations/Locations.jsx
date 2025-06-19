@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from "@react-google-maps/api";
 import "./Locations.scss";
 import gymData from '../../data/Gyms.json';
+import privateData from '../../data/Private.json';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const containerStyle = {
@@ -30,22 +31,33 @@ const Locations = () => {
     googleMapsApiKey: "AIzaSyA6rL31DnP10K5YajtIaCFQAtONg4xGZys",
   });
 
-  const filteredLocations = useMemo(() => {
+  const calculateDistance = (lat1, lng1, lat2, lng2) => {
     const toRadians = (deg) => (deg * Math.PI) / 180;
+    const R = 3958.8; // Radius of Earth in miles
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lng2 - lng1);
+    const a =
+      Math.sin(dLat / 2) ** 2 +
+      Math.cos(toRadians(lat1)) *
+      Math.cos(toRadians(lat2)) *
+      Math.sin(dLon / 2) ** 2;
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
 
-    return gymData?.gyms?.filter((loc) => {
-      const R = 3958.8; // Radius of Earth in miles
-      const dLat = toRadians(loc.lat - searchLat);
-      const dLon = toRadians(loc.lng - searchLng);
-      const a =
-        Math.sin(dLat / 2) ** 2 +
-        Math.cos(toRadians(searchLat)) *
-        Math.cos(toRadians(loc.lat)) *
-        Math.sin(dLon / 2) ** 2;
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      const distance = R * c;
+  const filterLocationsByRadius = (locations) => {
+    return locations?.filter((loc) => {
+      const distance = calculateDistance(searchLat, searchLng, loc.lat, loc.lng);
       return distance <= radius;
     });
+  };
+
+  const filteredGymLocations = useMemo(() => {
+    return filterLocationsByRadius(gymData?.gyms);
+  }, [searchLat, searchLng, radius]);
+
+  const filteredPrivateLocations = useMemo(() => {
+    return filterLocationsByRadius(privateData?.private);
   }, [searchLat, searchLng, radius]);
 
   const handleNewLocationSubmit = (e) => {
@@ -63,14 +75,14 @@ const Locations = () => {
           center={{ lat: searchLat, lng: searchLng }}
           zoom={9}
         >
-          {filteredLocations?.map((loc) => (
+          {[...filteredGymLocations, ...filteredPrivateLocations]?.map((loc) => (
             <Marker
-              key={loc.id}
+              key={loc.id + loc.name}
               position={{ lat: loc.lat, lng: loc.lng }}
-              onMouseOver={() => setHoveredMarkerId(loc.id)}
+              onMouseOver={() => setHoveredMarkerId(loc.id + loc.name)}
               onMouseOut={() => setHoveredMarkerId(null)}
             >
-              {hoveredMarkerId === loc.id && (
+              {hoveredMarkerId === loc.id + loc.name && (
                 <InfoWindow position={{ lat: loc.lat, lng: loc.lng }}>
                   <div>{loc.name}</div>
                 </InfoWindow>
@@ -129,12 +141,12 @@ const Locations = () => {
         
         {show.gyms && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredLocations?.length === 0 ? (
+            {filteredGymLocations?.length === 0 ? (
               <p>No gyms found within selected radius.</p>
             ) : (
-              filteredLocations?.map((loc) => (
+              filteredGymLocations?.map((loc) => (
                 <div
-                  key={loc.id}
+                  key={loc.id+loc.name}
                   className="rounded-xl shadow-lg border overflow-hidden bg-white transition hover:shadow-2xl"
                 >
                   <img
@@ -147,6 +159,63 @@ const Locations = () => {
                     <p className="text-gray-600">{loc.address}</p>
                     <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
                     <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
+                    <p><span className="font-semibold">Phone:</span> {loc.phone}</p>
+                    <p>
+                      <span className="font-semibold">Email:</span>{" "}
+                      <a href={`mailto:${loc.email}`} className="text-blue-600 hover:underline">
+                        {loc.email}
+                      </a>
+                    </p>
+                    <p>
+                      <span className="font-semibold">Google Reviews:</span>{" "}
+                      <span className="text-yellow-500 font-medium">{loc.reviews} ★</span>
+                    </p>
+                    <a
+                      href={loc.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-2 text-blue-600 hover:underline"
+                    >
+                      Visit Website →
+                    </a>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        )}
+
+        <h2 
+          className="text-2xl font-semibold mt-10 mb-4 cursor-pointer flex justify-center items-center" 
+          onClick={() => setShow(prev => ({...prev, private: !prev.private}))}
+        >
+          <div className="mr-5">San Diego Private Training Locations</div>
+          <div>
+            {show.private ? <FaEye /> : <FaEyeSlash />}
+          </div>
+        </h2>
+
+        {show.private && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredPrivateLocations?.length === 0 ? (
+              <p>No Private Training Locations found within selected radius.</p>
+            ) : (
+              filteredPrivateLocations?.map((loc) => (
+                <div
+                  key={loc.id+loc.name}
+                  className="rounded-xl shadow-lg border overflow-hidden bg-white transition hover:shadow-2xl"
+                >
+                  <img
+                    src={loc.image}
+                    alt={loc.name}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4 space-y-2">
+                    <h3 className="text-xl font-bold">{loc.name}</h3>
+                    <p className="text-gray-600">{loc.address}</p>
+                    <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
+                    <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
+                    <p><span className="font-semibold">Price:</span> {loc.price}</p>
                     <p><span className="font-semibold">Phone:</span> {loc.phone}</p>
                     <p>
                       <span className="font-semibold">Email:</span>{" "}
