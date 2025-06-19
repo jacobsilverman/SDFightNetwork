@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from "@react-google-maps/api";
 import "./Locations.scss";
 import gymData from '../../data/Gyms.json';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -25,6 +25,7 @@ const Locations = () => {
     lat: "",
     lng: "",
   });
+  const [hoveredMarkerId, setHoveredMarkerId] = useState(null);
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: "AIzaSyA6rL31DnP10K5YajtIaCFQAtONg4xGZys",
@@ -64,7 +65,18 @@ const Locations = () => {
           zoom={9}
         >
           {filteredLocations?.map((loc) => (
-            <Marker key={loc.id} position={{ lat: loc.lat, lng: loc.lng }} />
+            <Marker
+              key={loc.id}
+              position={{ lat: loc.lat, lng: loc.lng }}
+              onMouseOver={() => setHoveredMarkerId(loc.id)}
+              onMouseOut={() => setHoveredMarkerId(null)}
+            >
+              {hoveredMarkerId === loc.id && (
+                <InfoWindow position={{ lat: loc.lat, lng: loc.lng }}>
+                  <div>{loc.name}</div>
+                </InfoWindow>
+              )}
+            </Marker>
           ))}
         </GoogleMap>
       )}
