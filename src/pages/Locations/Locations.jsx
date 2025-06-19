@@ -131,62 +131,6 @@ const Locations = () => {
 
         <h2 
           className="text-2xl font-semibold mt-10 mb-4 cursor-pointer flex justify-center items-center" 
-          onClick={() => setShow(prev => ({...prev, gyms: !prev.gyms}))}
-        >
-          <div className="mr-5">San Diego Combat Gyms</div>
-          <div>
-            {show.gyms ? <FaEye /> : <FaEyeSlash />}
-          </div>
-        </h2>
-        
-        {show.gyms && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredGymLocations?.length === 0 ? (
-              <p>No gyms found within selected radius.</p>
-            ) : (
-              filteredGymLocations?.map((loc) => (
-                <div
-                  key={loc.id+loc.name}
-                  className="rounded-xl shadow-lg border overflow-hidden bg-white transition hover:shadow-2xl"
-                >
-                  <img
-                    src={loc.image}
-                    alt={loc.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  <div className="p-4 space-y-2">
-                    <h3 className="text-xl font-bold">{loc.name}</h3>
-                    <p className="text-gray-600">{loc.address}</p>
-                    <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
-                    <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
-                    <p><span className="font-semibold">Phone:</span> {loc.phone}</p>
-                    <p>
-                      <span className="font-semibold">Email:</span>{" "}
-                      <a href={`mailto:${loc.email}`} className="text-blue-600 hover:underline">
-                        {loc.email}
-                      </a>
-                    </p>
-                    <p>
-                      <span className="font-semibold">Google Reviews:</span>{" "}
-                      <span className="text-yellow-500 font-medium">{loc.reviews} ★</span>
-                    </p>
-                    <a
-                      href={loc.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-2 text-blue-600 hover:underline"
-                    >
-                      Visit Website →
-                    </a>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
-        )}
-
-        <h2 
-          className="text-2xl font-semibold mt-10 mb-4 cursor-pointer flex justify-center items-center" 
           onClick={() => setShow(prev => ({...prev, private: !prev.private}))}
         >
           <div className="mr-5">San Diego Private Training Locations</div>
@@ -216,6 +160,62 @@ const Locations = () => {
                     <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
                     <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
                     <p><span className="font-semibold">Price:</span> {loc.price}</p>
+                    <p><span className="font-semibold">Phone:</span> {loc.phone}</p>
+                    <p>
+                      <span className="font-semibold">Email:</span>{" "}
+                      <a href={`mailto:${loc.email}`} className="text-blue-600 hover:underline">
+                        {loc.email}
+                      </a>
+                    </p>
+                    <p>
+                      <span className="font-semibold">Google Reviews:</span>{" "}
+                      <span className="text-yellow-500 font-medium">{loc.reviews} ★</span>
+                    </p>
+                    <a
+                      href={loc.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-2 text-blue-600 hover:underline"
+                    >
+                      Visit Website →
+                    </a>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        )}
+
+        <h2 
+          className="text-2xl font-semibold mt-10 mb-4 cursor-pointer flex justify-center items-center" 
+          onClick={() => setShow(prev => ({...prev, gyms: !prev.gyms}))}
+        >
+          <div className="mr-5">San Diego Combat Gyms</div>
+          <div>
+            {show.gyms ? <FaEye /> : <FaEyeSlash />}
+          </div>
+        </h2>
+        
+        {show.gyms && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredGymLocations?.length === 0 ? (
+              <p>No gyms found within selected radius.</p>
+            ) : (
+              filteredGymLocations?.map((loc) => (
+                <div
+                  key={loc.id+loc.name}
+                  className="rounded-xl shadow-lg border overflow-hidden bg-white transition hover:shadow-2xl"
+                >
+                  <img
+                    src={loc.image}
+                    alt={loc.name}
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4 space-y-2">
+                    <h3 className="text-xl font-bold">{loc.name}</h3>
+                    <p className="text-gray-600">{loc.address}</p>
+                    <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
+                    <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
                     <p><span className="font-semibold">Phone:</span> {loc.phone}</p>
                     <p>
                       <span className="font-semibold">Email:</span>{" "}
