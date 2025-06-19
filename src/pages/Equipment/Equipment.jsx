@@ -63,9 +63,9 @@ const Equipment = () => {
               <h2 className="text-xl font-semibold text-black mb-2">{product.name}</h2>
               <p className="text-gray-700 mb-2">{product.description}</p>
               <span className="text-amber-600 font-bold text-lg mb-4">{product.price}</span>
-              <button className="mt-auto bg-black text-white py-2 px-4 rounded hover:bg-gray-900 transition">
+              <a className="mt-auto bg-black text-white py-2 px-4 rounded hover:bg-gray-900 transition" href={product.url} target="_blank">
                 Add to Cart
-              </button>
+              </a>
             </div>
           ))
         ) : (

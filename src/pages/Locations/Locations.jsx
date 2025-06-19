@@ -19,7 +19,7 @@ const Locations = () => {
   const [searchLat, setSearchLat] = useState(center.lat);
   const [searchLng, setSearchLng] = useState(center.lng);
   const [show, setShow] = useState({gyms: true, private: true});
-
+  const [modalOpen, setModalOpen] = useState(false);
   const [newLocation, setNewLocation] = useState({
     name: "",
     lat: "",
@@ -70,7 +70,7 @@ const Locations = () => {
       )}
 
       <div className="mt-6 space-y-4">
-        <div className="flex flex-col md:flex-row items-center justify-around">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 items-center justify-around gap-4">
           <label>
             Latitude:{" "}
             <input
@@ -98,7 +98,7 @@ const Locations = () => {
               className="border p-1 rounded"
             />
           </label>
-          <button>
+          <button onClick={() => setModalOpen(true)}>
             Register New Training Location
           </button>
         </div>
@@ -154,39 +154,55 @@ const Locations = () => {
         </div>}
 
 
-        <h2 className="text-xl font-semibold mt-6">Register a New Location</h2>
-        <form onSubmit={handleNewLocationSubmit} className="space-y-2">
-          <input
-            type="text"
-            placeholder="Name"
-            value={newLocation.name}
-            onChange={(e) =>
-              setNewLocation({ ...newLocation, name: e.target.value })
-            }
-            className="border w-full p-2 rounded"
-          />
-          <input
-            type="number"
-            placeholder="Latitude"
-            value={newLocation.lat}
-            onChange={(e) =>
-              setNewLocation({ ...newLocation, lat: Number(e.target.value) })
-            }
-            className="border w-full p-2 rounded"
-          />
-          <input
-            type="number"
-            placeholder="Longitude"
-            value={newLocation.lng}
-            onChange={(e) =>
-              setNewLocation({ ...newLocation, lng: Number(e.target.value) })
-            }
-            className="border w-full p-2 rounded"
-          />
-          <button type="submit" className="bg-black text-white px-4 py-2 rounded">
-            Submit Location
-          </button>
-        </form>
+        {modalOpen && (
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="bg-white rounded-lg p-8 w-full max-w-md relative">
+      <button
+        className="absolute top-2 right-2 text-gray-500 hover:text-black"
+        onClick={() => setModalOpen(false)}
+        aria-label="Close"
+      >
+        ×
+      </button>
+      <h2 className="text-xl font-semibold mb-4">Register a New Location</h2>
+      <form onSubmit={e => { handleNewLocationSubmit(e); setModalOpen(false); }} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          placeholder="Name"
+          value={newLocation.name}
+          onChange={(e) =>
+            setNewLocation({ ...newLocation, name: e.target.value })
+          }
+          className="border w-full p-2 rounded"
+        />
+        <input
+          type="number"
+          placeholder="Latitude"
+          value={newLocation.lat}
+          onChange={(e) =>
+            setNewLocation({ ...newLocation, lat: Number(e.target.value) })
+          }
+          className="border w-full p-2 rounded"
+        />
+        <input
+          type="number"
+          placeholder="Longitude"
+          value={newLocation.lng}
+          onChange={(e) =>
+            setNewLocation({ ...newLocation, lng: Number(e.target.value) })
+          }
+          className="border w-full p-2 rounded"
+        />
+        <button
+          type="submit"
+          className="bg-black text-white px-4 py-2 rounded col-span-1 md:col-span-2"
+        >
+          Submit Location
+        </button>
+      </form>
+    </div>
+  </div>
+)}
       </div>
     </div>
   );
