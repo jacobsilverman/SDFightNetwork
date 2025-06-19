@@ -1,6 +1,7 @@
 import React from "react";
 import "./Footer.scss";
 import { SocialIcon } from 'react-social-icons';
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -11,16 +12,16 @@ const Footer = () => {
           <h3 className="footer__title">SD Fight Network</h3>
           <p>
             Bringing you the best martial arts training and sparring network in San Diego. 
-            Dedicated to fighters, trainers, and fans.
           </p>
           <p>© {new Date().getFullYear()} SD Fight Network. All rights reserved.</p>
+          <Link to="/Privacy"><p>Privacy Statement</p></Link>
         </div>
         <div className="footer__section footer__links">
           <div>
             <ul className="footer__list">
-              <li><a href="/">Home</a></li>
-              <li><a href="/fighters">Register as Fighter</a></li>
-              <li><a href="/trainers">Register as Trainer</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/fighters">Register as Fighter</Link></li>
+              <li><Link to="/trainers">Register as Trainer</Link></li>
 
             </ul>
           </div>
