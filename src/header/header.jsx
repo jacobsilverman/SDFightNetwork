@@ -10,16 +10,26 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
 
-const navItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact'];
+const desktopNavItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact'];
+const mobileNavItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact', 'Privacy'];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
+  };
+
+  const isActiveTab = (item) => {
+    const path = location.pathname;
+    if (item.toLowerCase() === 'home') {
+      return path === '/' || path === '/Home';
+    }
+    return path.toLowerCase() === `/${item.toLowerCase()}`;
   };
 
   const drawer = (
@@ -28,12 +38,13 @@ const Header = () => {
         <Link to="/">SD Fight Network</Link>
       </Typography>
       <List>
-        {navItems.map((item) => (
+        {mobileNavItems.map((item) => (
           <ListItem
             button
             key={item}
             component={Link}
             to={`/${item.toLowerCase()}`}
+            className={isActiveTab(item) ? 'active' : ''}
           >
             <ListItemText primary={item} />
           </ListItem>
@@ -67,12 +78,12 @@ const Header = () => {
             sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }} 
             className="nav-tabs-container"
           >
-            {navItems.map((item) => (
+            {desktopNavItems.map((item) => (
               <Link 
                 to={`/${item}`} 
                 key={item} 
                 sx={{ color: '#fff' }} 
-                className="nav-tab"
+                className={`nav-tab ${isActiveTab(item) ? 'active' : ''}`}
               >
                 {item}
               </Link>
