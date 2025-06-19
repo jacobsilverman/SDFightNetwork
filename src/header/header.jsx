@@ -1,5 +1,5 @@
 // src/components/NavBar.tsx
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -12,16 +12,15 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
 import './Header.scss';
-import { useState } from 'react';
 
 const navItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact'];
 
 const Header = () => {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
-  }
+    setMobileOpen(!mobileOpen);
+  };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -30,10 +29,10 @@ const Header = () => {
       </Typography>
       <List>
         {navItems.map((item) => (
-          <ListItem 
-            button 
-            key={item} 
-            component={Link} 
+          <ListItem
+            button
+            key={item}
+            component={Link}
             to={`/${item.toLowerCase()}`}
           >
             <ListItemText primary={item} />
@@ -41,7 +40,7 @@ const Header = () => {
         ))}
       </List>
     </Box>
-  )
+  );
 
   return (
     <>
@@ -64,9 +63,17 @@ const Header = () => {
           >
             <Link to="/">SD Fight Network</Link>
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }} className="nav-tabs-container">
+          <Box 
+            sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }} 
+            className="nav-tabs-container"
+          >
             {navItems.map((item) => (
-              <Link to={`/${item}`} key={item} sx={{ color: '#fff' }} className='nav-tab'>
+              <Link 
+                to={`/${item}`} 
+                key={item} 
+                sx={{ color: '#fff' }} 
+                className="nav-tab"
+              >
                 {item}
               </Link>
             ))}
@@ -86,7 +93,7 @@ const Header = () => {
         {drawer}
       </Drawer>
     </>
-  )
-}
+  );
+};
 
 export default Header;

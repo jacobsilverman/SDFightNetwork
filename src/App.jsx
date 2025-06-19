@@ -12,7 +12,6 @@ import Header from './Header';
 import Footer from './Footer';
 import './styles/App.scss';
 
-
 export default function FightSite() {
   return (
     <Router>

@@ -18,17 +18,19 @@ nav {
         display:flex;
         align-items: center;
         color: white;
-    }
 
-    a.nav-tab:hover {
-        outline: 2px auto -webkit-focus-ring-color;
-    }
+        &:hover {
+            outline: 2px auto -webkit-focus-ring-color;
+        }
 
-    a.nav-tab:focus, a.nav-tab:focus-visible,  a.nav-tab:active {
-        outline: 0px auto -webkit-focus-ring-color;
-        background-color: var(--primary-color);
-        transition: 4s;
-        height: 64px;
+        &:focus,
+        &:focus-visible,
+        &:active {
+            outline: 0px auto -webkit-focus-ring-color;
+            background-color: var(--primary-color);
+            transition: 4s;
+            height: 64px;
+        }
     }
 }
 

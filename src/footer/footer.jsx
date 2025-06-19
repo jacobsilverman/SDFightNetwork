@@ -7,40 +7,40 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-
         <div className="footer__section footer__about">
           <h3 className="footer__title">SD Fight Network</h3>
           <p>
             Bringing you the best martial arts training and sparring network in San Diego. 
           </p>
           <p>© {new Date().getFullYear()} SD Fight Network. All rights reserved.</p>
-          <Link to="/Privacy"><p>Privacy Statement</p></Link>
+          <Link to="/Privacy">
+            <p>Privacy Statement</p>
+          </Link>
         </div>
+
         <div className="footer__section footer__links">
           <div>
             <ul className="footer__list">
               <li><Link to="/">Home</Link></li>
               <li><Link to="/fighters">Register as Fighter</Link></li>
               <li><Link to="/trainers">Register as Trainer</Link></li>
-
             </ul>
           </div>
           <div>
             <ul className="footer__list">
-              <li><a href="/locations">Classes</a></li>
-              <li><a href="/fighters">Find Opponents</a></li>
-              <li><a href="/trainers">Find Trainers</a></li>
+              <li><Link to="/locations">Classes</Link></li>
+              <li><Link to="/fighters">Find Opponents</Link></li>
+              <li><Link to="/trainers">Find Trainers</Link></li>
             </ul>
           </div>
           <div>
             <ul className="footer__list">
-              <li><a href="/equipment">Equipment</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/contact">Contact Us</a></li>
+              <li><Link to="/equipment">Equipment</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
         </div>
-        
 
         <div className="footer__section footer__contact">
           <address>
@@ -55,7 +55,6 @@ const Footer = () => {
             <SocialIcon url="https://youtube.com/sdfightnetwork" />
           </div>
         </div>
-
       </div>
     </footer>
   );
