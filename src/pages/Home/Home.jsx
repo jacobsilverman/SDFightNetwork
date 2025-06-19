@@ -45,7 +45,7 @@ const Home = () => {
     );
 
     const Hero = () => (
-        <div className="relative h-screen w-screen overflow-hidden bg-black">
+        <div className="relative h-screen overflow-hidden bg-black">
             {/* Background GIF */}
             <img
                 src={boxing}

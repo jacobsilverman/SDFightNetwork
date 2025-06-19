@@ -34,7 +34,7 @@ const Header = () => {
             button 
             key={item} 
             component={Link} 
-            to={`/${item.toLowerCase()}`} // optional: lowercase for cleaner URLs
+            to={`/${item.toLowerCase()}`}
           >
             <ListItemText primary={item} />
           </ListItem>

@@ -70,7 +70,7 @@ const Locations = () => {
       )}
 
       <div className="mt-6 space-y-4">
-        <div className="flex flex-col md:flex-row items-center justify-around w-screen">
+        <div className="flex flex-col md:flex-row items-center justify-around">
           <label>
             Latitude:{" "}
             <input
