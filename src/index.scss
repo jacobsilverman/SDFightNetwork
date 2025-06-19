@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,26 +17,75 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-    // fallback or default colors (optional)
-  --primary-color: #{vars.$primary-color-light};
-  --background-color: #{vars.$background-color-light};
-  --background-secondary-color: #{vars.$background-secondary-color-light};
-  --text-color: #{vars.$text-color-light};
+  // Default colors (light mode)
+  --primary-color: #{vars.$primary-color-default};
+  --secondary-color: #{vars.$secondary-color-default};
+  --text-color: #{vars.$text-color-default};
+  --text-color-secondary: #{vars.$text-color-secondary-default};
+  --background-color: #{vars.$background-color-default};
+  --background-secondary-color: #{vars.$background-secondary-color-default};
+  --card-bg-color: #{vars.$card-bg-color-default};
+  --border-color: #{vars.$border-color-default};
 }
 
+// default Mode
+.default-mode {
+  --primary-color: #{vars.$primary-color-default};
+  --secondary-color: #{vars.$secondary-color-default};
+  --text-color: #{vars.$text-color-default};
+  --text-color-secondary: #{vars.$text-color-secondary-default};
+  --background-color: #{vars.$background-color-default};
+  --background-secondary-color: #{vars.$background-secondary-color-default};
+  --card-bg-color: #{vars.$card-bg-color-default};
+  --border-color: #{vars.$border-color-default};
+}
 
+// Light Mode
 .light-mode {
   --primary-color: #{vars.$primary-color-light};
+  --secondary-color: #{vars.$secondary-color-light};
+  --text-color: #{vars.$text-color-light};
+  --text-color-secondary: #{vars.$text-color-secondary-light};
   --background-color: #{vars.$background-color-light};
   --background-secondary-color: #{vars.$background-secondary-color-light};
-  --text-color: #{vars.$text-color-light};
+  --card-bg-color: #{vars.$card-bg-color-light};
+  --border-color: #{vars.$border-color-light};
 }
 
+// Dark Mode
 .dark-mode {
   --primary-color: #{vars.$primary-color-dark};
+  --secondary-color: #{vars.$secondary-color-dark};
+  --text-color: #{vars.$text-color-dark};
+  --text-color-secondary: #{vars.$text-color-secondary-dark};
   --background-color: #{vars.$background-color-dark};
   --background-secondary-color: #{vars.$background-secondary-color-dark};
-  --text-color: #{vars.$text-color-dark};
+  --card-bg-color: #{vars.$card-bg-color-dark};
+  --border-color: #{vars.$border-color-dark};
+}
+
+// Blue Theme
+.blue-mode {
+  --primary-color: #{vars.$primary-color-blue};
+  --secondary-color: #{vars.$secondary-color-blue};
+  --text-color: #{vars.$text-color-blue};
+  --text-color-secondary: #{vars.$text-color-secondary-blue};
+  --background-color: #{vars.$background-color-blue};
+  --background-secondary-color: #{vars.$background-secondary-color-blue};
+  --card-bg-color: #{vars.$card-bg-color-blue};
+  --border-color: #{vars.$border-color-blue};
+}
+
+// Green Theme
+.green-mode {
+  --primary-color: #{vars.$primary-color-green};
+  --secondary-color: #{vars.$secondary-color-green};
+  --text-color: #{vars.$text-color-green};
+  --text-color-secondary: #{vars.$text-color-secondary-green};
+  --background-color: #{vars.$background-color-green};
+  --background-secondary-color: #{vars.$background-secondary-color-green};
+  --card-bg-color: #{vars.$card-bg-color-green};
+  --border-color: #{vars.$border-color-green};
 }
 
 html, body {
@@ -50,6 +98,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   .nav-bar {
     /* header height can be fixed or based on content */

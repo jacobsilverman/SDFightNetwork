@@ -11,6 +11,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import { Link, useLocation } from 'react-router-dom';
+import ColorModeSwitcher from '../shared/ColorModeSwitcher';
 import './Header.scss';
 
 const desktopNavItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact'];
@@ -35,7 +36,7 @@ const Header = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Link to="/">SD Fight Network</Link>
+        <Link to="/" className="home-name-link">SD Fight <span>Network</span></Link>
       </Typography>
       <List>
         {mobileNavItems.map((item) => (
@@ -72,7 +73,7 @@ const Header = () => {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             className="home-name"
           >
-            <Link to="/">SD Fight Network</Link>
+            <Link to="/" className="home-name-link">SD Fight <span>Network</span></Link>
           </Typography>
           <Box 
             sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }} 
@@ -88,6 +89,9 @@ const Header = () => {
                 {item}
               </Link>
             ))}
+          </Box>
+          <Box sx={{ ml: 2, display: { xs: 'block' } }}>
+            <ColorModeSwitcher />
           </Box>
         </Toolbar>
       </AppBar>

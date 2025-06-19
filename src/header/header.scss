@@ -17,7 +17,7 @@ nav {
         padding: 10px;
         display:flex;
         align-items: center;
-        color: white;
+        color: var(--text-color-secondary);
 
         &:hover {
             outline: 2px auto -webkit-focus-ring-color;
@@ -30,6 +30,10 @@ nav {
             height: 64px;
         }
     }
+
+    .home-name-link {
+        color: var(--text-color-secondary);
+    }
 }
 
 // Mobile drawer active state
@@ -39,3 +43,18 @@ nav {
     transition: 4s;
 }
 
+.MuiTypography-root {
+    .home-name-link {
+        color: var(--text-color-secondary);
+        span {
+            color: var(--primary-color);
+        }
+    }
+}
+
+.MuiButtonBase-root {
+    svg {
+        color: var(--primary-color);
+    }
+    
+}

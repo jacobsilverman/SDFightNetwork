@@ -16,11 +16,11 @@ const About = () => {
       </section>
 
       {/* Divider */}
-      <div className="my-12 border-t border-amber-500 w-32 mx-auto" />
+      <div className="my-12 border-t border-primary-color w-32 mx-auto" />
 
         {/* Community Section */}
       <section className="mt-10 text-center mb-10">
-        <h2 className="text-2xl font-semibold text-amber-600 mb-4">Join the Movement</h2>
+        <h2 className="text-2xl font-semibold mb-4 color-primary">Join the Movement</h2>
         <p className="text-gray-700 max-w-3xl mx-auto">
           Whether you're a fighter, coach, gym owner, or die-hard fan — SD Fight Network is your home base. Stay informed, connect with others, and be part of San Diego’s fight evolution.
         </p>
@@ -37,7 +37,7 @@ const About = () => {
       {/* Mission Section */}
       <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-2xl font-semibold text-amber-600 mb-4">Our Mission</h2>
+          <h2 className="text-2xl font-semibold color-primary mb-4">Our Mission</h2>
           <p className="text-gray-700 leading-relaxed">
             SD Fight Network was born to showcase and support Southern California’s dynamic fight culture. We promote local fighters, spotlight gyms, and keep fans connected with everything happening in the fight world right here in San Diego.
           </p>

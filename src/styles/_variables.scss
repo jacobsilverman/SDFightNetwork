@@ -1,14 +1,51 @@
 // src/styles/_variables.scss
 
+// Default Mode Colors
+$primary-color-default: rgb(217 119 6 / var(--tw-text-opacity, 1));
+$secondary-color-default: #333;
+$text-color-default: black;
+$text-color-secondary-default: #f8f8f8;
+$background-color-default: #f8f8f8;
+$background-secondary-color-default: rgb(64, 64, 64);
+$card-bg-color-default: #333333;
+$border-color-default: #404040;
+
+// Light Mode Colors
 $primary-color-light: rgb(217 119 6 / var(--tw-text-opacity, 1));
 $secondary-color-light: #333;
-$text-color-light: black;
-$background-color-light: #f8f8f8;
-$background-secondary-color-light: rgb(64, 64, 64);
+$text-color-light: #1a1a1a;
+$text-color-secondary-light: #1a1a1a;
+$background-color-light: #ffffff;
+$background-secondary-color-light: #f8f8f8;
+$card-bg-color-light: #ffffff;
+$border-color-light: #e5e5e5;
 
-
+// Dark Mode Colors
 $primary-color-dark: rgb(217 119 6 / var(--tw-text-opacity, 1));
 $secondary-color-dark: #333;
 $text-color-dark: black;
+$text-color-secondary-dark: #f8f8f8;
 $background-color-dark: #f8f8f8;
 $background-secondary-color-dark: rgb(64, 64, 64);
+$card-bg-color-dark: #333333;
+$border-color-dark: #404040;
+
+// Blue Theme Colors
+$primary-color-blue: rgb(59 130 246 / var(--tw-text-opacity, 1));
+$secondary-color-blue: #1e40af;
+$text-color-blue: #1e1e1e;
+$text-color-secondary-blue: #1e1e1e;
+$background-color-blue: #f0f8ff;
+$background-secondary-color-blue: #dbeafe;
+$card-bg-color-blue: #ffffff;
+$border-color-blue: #bfdbfe;
+
+// Green Theme Colors
+$primary-color-green: rgb(34 197 94 / var(--tw-text-opacity, 1));
+$secondary-color-green: #15803d;
+$text-color-green: #1e1e1e;
+$text-color-secondary-green: #1e1e1e;
+$background-color-green: #f0fdf4;
+$background-secondary-color-green: #dcfce7;
+$card-bg-color-green: #ffffff;
+$border-color-green: #bbf7d0;

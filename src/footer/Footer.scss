@@ -1,18 +1,18 @@
 .footer {
-  background-color: var(--background-secondary-color);  // dark background
-  color: #eee;             // light text
+  background-color: var(--background-secondary-color);
+  color: var(--text-color-secondary);
   padding: 2rem 0;
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
 
   a {
-    color: #fbbf24;  // amber-400
+    color: var(--primary-color);  // amber-400
     text-decoration: none;
     transition: color 0.3s ease;
 
     &:hover,
     &:focus {
-      color: #f59e0b;  // amber-500
+      color: var(--primary-color);  // amber-500
       text-decoration: underline;
       outline: none;
     }
