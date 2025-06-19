@@ -7,6 +7,7 @@ import Trainers from './pages/Trainers';
 import Locations from './pages/Locations';
 import Equipment from './pages/Equipment';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
 import Header from './Header';
 import Footer from './Footer';
 import './styles/App.scss';
@@ -26,6 +27,7 @@ export default function FightSite() {
           <Route path="/Locations" element={<Locations />} />
           <Route path="/Equipment" element={<Equipment />} />
           <Route path="/Contact" element={<Contact />} />
+          <Route path="/Privacy" element={<Privacy />} />
         </Routes>
       </main>
       <Footer />
