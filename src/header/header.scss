@@ -37,9 +37,12 @@ nav {
 }
 
 .MuiPaper-root {
+    &.css-cyqh1t-MuiPaper-root-MuiDrawer-paper {
+        background-color: var(--card-bg-color);
+    }
     .MuiBox-root {
         a {
-            color: var(--text-color-secondary);
+            color: var(--text-color);
         }
     }
 }
@@ -56,6 +59,14 @@ nav {
         color: var(--text-color-secondary);
         span {
             color: var(--primary-color);
+        }
+    }
+}
+
+.MuiBox-root {
+    .MuiTypography-root {
+        .home-name-link {
+            color: var(--text-color);
         }
     }
 }
