@@ -96,10 +96,10 @@ const Home = () => {
     );
 
     const StylesSection = () => (
-        <div className="text-center pt-20 bg-zinc-100 pb-20">
-            <p className="text-xl text-zinc-400 mb-6">
+        <div className="text-center pt-20 pb-20">
+            <h3 className="text-xl mb-6">
                 Our Network primary consists of these fighting practices
-            </p>
+            </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-20 py-10">
                 <motion.div
                     whileHover={{ scale: 1.05 }}

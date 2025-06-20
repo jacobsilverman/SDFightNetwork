@@ -10,11 +10,13 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Header from './Header';
 import Footer from './Footer';
+import ThemeManager from './shared/ThemeManager';
 import './styles/App.scss';
 
 export default function FightSite() {
   return (
     <Router>
+      <ThemeManager />
       <Header />
       <main className="page">
         <Routes>

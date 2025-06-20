@@ -88,6 +88,18 @@
   --border-color: #{vars.$border-color-green};
 }
 
+// Pradres Theme
+.padres-mode {
+  --primary-color: #{vars.$primary-color-padres};
+  --secondary-color: #{vars.$secondary-color-padres};
+  --text-color: #{vars.$text-color-padres};
+  --text-color-secondary: #{vars.$text-color-secondary-padres};
+  --background-color: #{vars.$background-color-padres};
+  --background-secondary-color: #{vars.$background-secondary-color-padres};
+  --card-bg-color: #{vars.$card-bg-color-padres};
+  --border-color: #{vars.$border-color-padres};
+}
+
 html, body {
   margin: 0;
   padding: 0;
