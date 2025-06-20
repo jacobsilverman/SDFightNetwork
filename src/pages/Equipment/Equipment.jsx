@@ -48,21 +48,21 @@ const Equipment = () => {
       </div>
 
       {/* Product Grid */}
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto products-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-gray-100 rounded-xl shadow hover:shadow-xl transition p-4 flex flex-col"
+              className="rounded-xl shadow hover:shadow-xl transition p-4 flex flex-col product-card"
             >
               <img
                 src={product.image}
                 alt={product.name}
                 className="rounded-lg object-cover h-48 w-full mb-4"
               />
-              <h2 className="text-xl font-semibold text-black mb-2">{product.name}</h2>
-              <p className="text-gray-700 mb-2">{product.description}</p>
-              <span className="text-amber-600 font-bold text-lg mb-4">{product.price}</span>
+              <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
+              <p className=" mb-2">{product.description}</p>
+              <span className="font-bold text-lg mb-4">{product.price}</span>
               <a className="mt-auto bg-black text-white py-2 px-4 rounded hover:bg-gray-900 transition" href={product.url} target="_blank">
                 Add to Cart
               </a>

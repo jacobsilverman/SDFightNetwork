@@ -124,7 +124,7 @@ const Home = () => {
                         <CardContent className="p-6 text-center">
                             <MdSportsMma className="text-6xl text-blue-600 mb-4 mx-auto" />
                             <h2 className="text-2xl font-bold mb-2">Muay Thai</h2>
-                            <p className="text-zinc-600">
+                            <p>
                                 Embrace the art of 8 limbs. Train with kicks, knees, elbows, and clinch to dominate the fight.
                             </p>
                         </CardContent>
@@ -140,7 +140,7 @@ const Home = () => {
                         <CardContent className="p-6 text-center">
                             <GiBelt className="text-6xl text-black mb-4 mx-auto" />
                             <h2 className="text-2xl font-bold mb-2">Ju juisu</h2>
-                            <p className="text-zinc-600">
+                            <p>
                                 Master the ground game with leverage, submissions, and positional control. Develop the skill to outmaneuver opponents regardless of size.
                             </p>
                         </CardContent>
@@ -156,7 +156,7 @@ const Home = () => {
                         <CardContent className="p-6 text-center">
                             <GiFist  className="text-6xl text-green-600 mb-4 mx-auto" />
                             <h2 className="text-2xl font-bold mb-2">Mixed Martial Arts</h2>
-                            <p className="text-zinc-600">
+                            <p>
                                 Blend striking and grappling into a complete combat system. Train across disciplines to become a well-rounded and versatile fighter.
                             </p>
                         </CardContent>

@@ -148,7 +148,7 @@ const Locations = () => {
               filteredPrivateLocations?.map((loc) => (
                 <div
                   key={loc.id+loc.name}
-                  className="rounded-xl shadow-lg border overflow-hidden bg-white transition hover:shadow-2xl"
+                  className="rounded-xl shadow-lg border overflow-hidden transition hover:shadow-2xl location-card"
                 >
                   <img
                     src={loc.image}
@@ -157,7 +157,7 @@ const Locations = () => {
                   />
                   <div className="p-4 space-y-2">
                     <h3 className="text-xl font-bold">{loc.name}</h3>
-                    <p className="text-gray-600">{loc.address}</p>
+                    <p>{loc.address}</p>
                     <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
                     <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
                     <p><span className="font-semibold">Price:</span> {loc.price}</p>
@@ -205,7 +205,7 @@ const Locations = () => {
               filteredGymLocations?.map((loc) => (
                 <div
                   key={loc.id+loc.name}
-                  className="rounded-xl shadow-lg border overflow-hidden bg-white transition hover:shadow-2xl"
+                  className="rounded-xl shadow-lg border overflow-hidden transition hover:shadow-2xl location-card"
                 >
                   <img
                     src={loc.image}
@@ -214,7 +214,7 @@ const Locations = () => {
                   />
                   <div className="p-4 space-y-2">
                     <h3 className="text-xl font-bold">{loc.name}</h3>
-                    <p className="text-gray-600">{loc.address}</p>
+                    <p>{loc.address}</p>
                     <p><span className="font-semibold">Arts:</span> {loc.arts.join(", ")}</p>
                     <p><span className="font-semibold">Open Hours:</span> {loc.hours}</p>
                     <p><span className="font-semibold">Phone:</span> {loc.phone}</p>

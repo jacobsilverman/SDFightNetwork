@@ -47,7 +47,7 @@
 
 .contact-form {
   flex: 1;
-  background-color: #ffffff;
+  background-color: var(--card-bg-color);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 2px 12px rgb(0 0 0 / 0.12);
@@ -58,7 +58,7 @@
   label {
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: #1f2937;
+    color: var(--text-color);
   }
 
   input,
@@ -68,17 +68,18 @@
     border: 1.5px solid #d1d5db;
     border-radius: 0.5rem;
     font-size: 1rem;
+    background-color: var(--card-bg-color);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
     &:focus {
       outline: none;
-      border-color: #d97706; // amber focus color
+      border-color: var(--primary-color); // amber focus color
       box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.3);
     }
   }
 
   button {
-    background-color: #d97706;
+    background-color: var(--primary-color);
     color: white;
     font-weight: 700;
     padding: 0.75rem 2rem;
@@ -89,7 +90,7 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #b45309;
+      background-color: var(--secondary-color);
     }
   }
 }

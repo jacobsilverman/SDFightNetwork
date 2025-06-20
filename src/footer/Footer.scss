@@ -30,6 +30,9 @@
   }
 
   .footer__section {
+    .footer__title {
+      color: var(--primary-color);
+    }
     &.footer__about {
       flex: 1 0 200px;
       p {

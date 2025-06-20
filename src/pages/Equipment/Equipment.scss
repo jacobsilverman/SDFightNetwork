@@ -1,0 +1,9 @@
+.products-grid {
+    color: var(--text-color);
+    .product-card {
+        background-color: var(--card-bg-color);
+    }
+    span {
+        color: var(--primary-color);
+    }
+}

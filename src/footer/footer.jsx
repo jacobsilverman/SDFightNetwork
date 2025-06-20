@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer__container">
         <div className="footer__section footer__about">
-          <h3 className="footer__title">SD Fight Network</h3>
+          <a className="footer__title" href="https://sdfighter.com">sdfighter.com</a>
           <p>
             Bringing you the best martial arts training and sparring network in San Diego. 
           </p>
