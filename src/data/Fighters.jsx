@@ -12,7 +12,7 @@ export const fightersData = {
   "fighters": [
      {
       "id": 1,
-      "name": "Michael",
+      "name": "Michael Uchiha",
       "height": "5'7\"",
       "weight": "135 lbs",
       "fightingStyles": ["Muay Thai", "BJJ"],

@@ -14,7 +14,7 @@ export const trainersData = {
   "trainers": [
     {
       "id": 1,
-      "name": "Michael",
+      "name": "Michael Goodkill",
       "height": "5'7\"",
       "weight": "135 lbs",
       "fightingStyles": ["Muay Thai", "BJJ"],
@@ -30,7 +30,7 @@ export const trainersData = {
     
     {
       "id": 2,
-      "name": "Steve Hoffman",
+      "name": "Connor Mcgregor",
       "height": "5'7\"",
       "weight": "135 lbs",
       "fightingStyles": ["Muay Thai", "MMA"],
