@@ -36,6 +36,14 @@ nav {
     }
 }
 
+.MuiPaper-root {
+    .MuiBox-root {
+        a {
+            color: var(--text-color);
+        }
+    }
+}
+
 // Mobile drawer active state
 .MuiListItem-root.active {
     outline: 0px auto -webkit-focus-ring-color;
