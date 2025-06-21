@@ -1,8 +1,13 @@
 .gm-style-iw-c button[aria-label="Close"] {
-    display: none !important;
-  }
-  
-  .location-card {
-    background-color: var(--card-bg-color);
-    color: var(--text-color);
-  }
+  display: none !important;
+}
+
+.location-card {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+}
+
+.location-search-container input {
+  background-color: #fff;
+  color: black;
+}

@@ -94,7 +94,7 @@ const Locations = () => {
       )}
 
       <div className="mt-6 space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 items-center justify-around gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 items-center justify-around gap-4 location-search-container">
           <label>
             Latitude:{" "}
             <input
