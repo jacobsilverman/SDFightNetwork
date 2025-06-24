@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-color) 50%, white) 0%, var(--primary-color) 100%);
   color: white;
   padding: 1rem;
   z-index: 1000;
@@ -106,7 +106,7 @@
 // Dark mode support
 @media (prefers-color-scheme: dark) {
   .pwa-install-banner {
-    background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color) 100%);
   }
   
   .pwa-install-btn {
