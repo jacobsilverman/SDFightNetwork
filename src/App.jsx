@@ -11,12 +11,15 @@ import Privacy from './pages/Privacy';
 import Header from './Header';
 import Footer from './Footer';
 import ThemeManager from './shared/ThemeManager';
+import PWAInstallButton from './shared/PWAInstallButton';
+import OfflineIndicator from './shared/OfflineIndicator';
 import './styles/App.scss';
 
 export default function FightSite() {
   return (
     <Router>
       <ThemeManager />
+      <OfflineIndicator />
       <Header />
       <main className="page">
         <Routes>
@@ -32,6 +35,7 @@ export default function FightSite() {
         </Routes>
       </main>
       <Footer />
+      <PWAInstallButton />
     </Router>
   );
 }
