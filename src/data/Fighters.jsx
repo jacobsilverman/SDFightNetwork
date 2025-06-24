@@ -2,8 +2,8 @@ import fighter1 from "../assets/fighter1.png";
 import fighter1Animation from "../assets/fighter1-animation.gif";
 import fighter2 from "../assets/fighter2.png";
 import fighter2Animation from "../assets/fighter2-animation.gif";
-import fighter3 from "../assets/fighter3.png";
-import fighter3Animation from "../assets/fighter3-animation.gif";
+import fighter3 from "../assets/fighters/Iram.png";
+import fighter3Animation from "../assets/fighters/Iram.gif";
 import michael from "../assets/fighters/Michael.png";
 import michaelAnimation from "../assets/fighters/Michael.gif";
 
