@@ -2,7 +2,7 @@ export const FIGHTING_STYLES = {
   BOXING: "Boxing",
   MUAY_THAI: "Muay Thai", 
   JU_JITSU: "Ju Jitsu",
-  MIXED_MARTIAL_ARTS: "Mixed Martial Arts"
+  MIXED_MARTIAL_ARTS: "MMA"
 };
 
 export const FIGHTING_STYLES_ARRAY = [
