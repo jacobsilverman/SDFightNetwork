@@ -4,6 +4,7 @@ import "./Locations.scss";
 import gymData from '../../data/Gyms.json';
 import privateData from '../../data/Private.json';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import LocationModal from "./LocationModal";
 
 const containerStyle = {
   height: "500px",
@@ -23,8 +24,16 @@ const Locations = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [newLocation, setNewLocation] = useState({
     name: "",
-    lat: "",
-    lng: "",
+    image: null,
+    street: "",
+    city: "",
+    state: "",
+    zipCode: "",
+    fightingStyles: [],
+    price: "",
+    phone: "",
+    email: "",
+    website: "",
   });
   const [hoveredMarkerId, setHoveredMarkerId] = useState(null);
 
@@ -243,55 +252,13 @@ const Locations = () => {
           </div>
         )}
 
-        {modalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-8 w-full max-w-md relative">
-              <button
-                className="absolute top-2 right-2 text-gray-500 hover:text-black"
-                onClick={() => setModalOpen(false)}
-                aria-label="Close"
-              >
-                ×
-              </button>
-              <h2 className="text-xl font-semibold mb-4">Register a New Location</h2>
-              <form 
-                onSubmit={e => { 
-                  handleNewLocationSubmit(e); 
-                  setModalOpen(false); 
-                }} 
-                className="grid grid-cols-1 md:grid-cols-2 gap-4"
-              >
-                <input
-                  type="text"
-                  placeholder="Name"
-                  value={newLocation.name}
-                  onChange={(e) => setNewLocation({ ...newLocation, name: e.target.value })}
-                  className="border w-full p-2 rounded"
-                />
-                <input
-                  type="number"
-                  placeholder="Latitude"
-                  value={newLocation.lat}
-                  onChange={(e) => setNewLocation({ ...newLocation, lat: Number(e.target.value) })}
-                  className="border w-full p-2 rounded"
-                />
-                <input
-                  type="number"
-                  placeholder="Longitude"
-                  value={newLocation.lng}
-                  onChange={(e) => setNewLocation({ ...newLocation, lng: Number(e.target.value) })}
-                  className="border w-full p-2 rounded"
-                />
-                <button
-                  type="submit"
-                  className="bg-black text-white px-4 py-2 rounded col-span-1 md:col-span-2"
-                >
-                  Submit Location
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
+        <LocationModal
+          modalOpen={modalOpen}
+          setModalOpen={setModalOpen}
+          newLocation={newLocation}
+          setNewLocation={setNewLocation}
+          handleNewLocationSubmit={handleNewLocationSubmit}
+        />
       </div>
     </div>
   );
