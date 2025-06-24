@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./LocationModal.scss";
+import { FIGHTING_STYLES_ARRAY } from "../../../constants/fightingStyles";
 
 const LocationModal = ({ 
   modalOpen, 
@@ -11,7 +12,7 @@ const LocationModal = ({
   const [selectedStyles, setSelectedStyles] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
   
-  const fightingStylesOptions = ["MMA", "BJJ", "Muay Thai", "Boxing"];
+  const fightingStylesOptions = FIGHTING_STYLES_ARRAY;
 
   const handleStyleToggle = (style) => {
     setSelectedStyles(prev => {

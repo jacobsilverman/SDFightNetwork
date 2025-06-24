@@ -1,4 +1,3 @@
-
 import fighter2 from "../assets/fighter2.png";
 import fighter2Animation from "../assets/fighter2-animation.gif";
 import fighter3Animation from "../assets/fighter3-animation.gif";
@@ -8,6 +7,7 @@ import xavier from "../assets/fighters/Xavier.png";
 import xavierAnimation from "../assets/fighters/Xavier.gif";
 import kabib from "../assets/fighters/kabib.png";
 import evan from "../assets/fighters/Evan.jpg";
+import { FIGHTING_STYLES } from "../constants/fightingStyles";
 
  
 export const trainersData = {
@@ -17,7 +17,7 @@ export const trainersData = {
       "name": "Michael Goodkill",
       "height": "5'7\"",
       "weight": "135 lbs",
-      "fightingStyles": ["Muay Thai", "BJJ"],
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.JU_JITSU],
       "age": 21,
       "yearsTraining": 1,
       "location": "La Jolla, CA",
@@ -33,7 +33,7 @@ export const trainersData = {
       "name": "Connor Mcgregor",
       "height": "5'7\"",
       "weight": "135 lbs",
-      "fightingStyles": ["Muay Thai", "MMA"],
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
       "age": 44,
       "yearsTraining": 3,
       "location": "La Jolla, CA",
@@ -48,7 +48,7 @@ export const trainersData = {
       "name": "Roger Goodman",
       "height": "6'1\"",
       "weight": "200 lbs",
-      "fightingStyles": ["Muay Thai", "MMA"],
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
       "age": 32,
       "yearsTraining": 5,
       "location": "La Jolla, CA",
@@ -63,7 +63,7 @@ export const trainersData = {
       "name": "Alex Johnson",
       "height": "5'10\"",
       "weight": "170 lbs",
-      "fightingStyles": ["Boxing", "BJJ"],
+      "fightingStyles": [FIGHTING_STYLES.BOXING, FIGHTING_STYLES.JU_JITSU],
       "age": 28,
       "yearsTraining": 5,
       "location": "San Diego, CA",

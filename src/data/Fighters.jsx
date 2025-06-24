@@ -6,6 +6,7 @@ import fighter3 from "../assets/fighters/Iram.png";
 import fighter3Animation from "../assets/fighters/Iram.gif";
 import michael from "../assets/fighters/Michael.png";
 import michaelAnimation from "../assets/fighters/Michael.gif";
+import { FIGHTING_STYLES } from "../constants/fightingStyles";
 
  
 export const fightersData = {
@@ -15,7 +16,7 @@ export const fightersData = {
       "name": "Michael Uchiha",
       "height": "5'7\"",
       "weight": "135 lbs",
-      "fightingStyles": ["Muay Thai", "BJJ"],
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.JU_JITSU],
       "age": 21,
       "yearsTraining": 1,
       "location": "La Jolla, CA",
@@ -30,7 +31,7 @@ export const fightersData = {
       "name": "Steve Hoffman",
       "height": "5'7\"",
       "weight": "135 lbs",
-      "fightingStyles": ["Muay Thai", "MMA"],
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
       "age": 44,
       "yearsTraining": 3,
       "location": "La Jolla, CA",
@@ -45,7 +46,7 @@ export const fightersData = {
       "name": "Cambell Ownens",
       "height": "6'1\"",
       "weight": "200 lbs",
-      "fightingStyles": ["Muay Thai", "MMA"],
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
       "age": 32,
       "yearsTraining": 5,
       "location": "La Jolla, CA",
@@ -60,7 +61,7 @@ export const fightersData = {
       "name": "Mason Livingston",
       "height": "5'11\"",
       "weight": "170 lbs",
-      "fightingStyles": ["Boxing", "BJJ"],
+      "fightingStyles": [FIGHTING_STYLES.BOXING, FIGHTING_STYLES.JU_JITSU],
       "age": 28,
       "yearsTraining": 5,
       "location": "San Diego, CA",

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Fighters.scss';
 import {fightersData} from "../../data/Fighters.jsx";
+import { FIGHTING_STYLES_ARRAY } from "../../constants/fightingStyles";
 
 export default function Fighters() {
   const [fighters, setFighters] = useState(fightersData.fighters);
@@ -46,10 +47,9 @@ export default function Fighters() {
         {filters.show && <div className="filter-bar">
           <select name="fightingStyle" onChange={handleChange}>
             <option value="">Any Style</option>
-            <option value="Boxing">Boxing</option>
-            <option value="Muay Thai">Muay Thai</option>
-            <option value="BJJ">BJJ</option>
-            <option value="MMA">MMA</option>
+            {FIGHTING_STYLES_ARRAY.map(style => (
+              <option key={style} value={style}>{style}</option>
+            ))}
           </select>
           <input type="text" name="location" placeholder="Location" onChange={handleChange} />
           <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />

@@ -1,0 +1,22 @@
+import { FIGHTING_STYLES } from "../constants/fightingStyles";
+
+export const privateData = {
+  "private": [
+    {
+        "id": 1,
+        "name": "Ida Training Backyard",
+        "lat": 32.985596,
+        "lng": -117.256109,
+        "address": "Ida ave Solana Beach, CA 92075",
+        "arts": [FIGHTING_STYLES.BOXING, FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.JU_JITSU, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
+        "hours": "Mon-Fri: 7am–9pm, Sat: 9am–2pm, Sun: Closed",
+        "phone": "(760) 815-7801",
+        "email": "jacob.h.silverman@gmail.com",
+        "reviews": 5,
+        "price": "$25/hr per person",
+        "limit": 25,
+        "website": "https://sdfighter.com/",
+        "image": "https://images.squarespace-cdn.com/content/v1/52627348e4b0823534b23503/1600024791232-ZMM5DJS1VYV5HO8XEK7Z/55ED0604-24EF-4353-BA2C-7D78DBCAF4CE_1_201_a.jpeg"
+    }
+  ]
+}; 

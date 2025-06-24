@@ -1,8 +1,8 @@
 import React, { useState, useMemo } from "react";
 import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from "@react-google-maps/api";
 import "./Locations.scss";
-import gymData from '../../data/Gyms.json';
-import privateData from '../../data/Private.json';
+import { gymsData } from '../../data/Gyms.jsx';
+import { privateData } from '../../data/Private.jsx';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LocationModal from "./LocationModal";
 
@@ -63,7 +63,7 @@ const Locations = () => {
   };
 
   const filteredGymLocations = useMemo(() => {
-    return filterLocationsByRadius(gymData?.gyms);
+    return filterLocationsByRadius(gymsData?.gyms);
   }, [searchLat, searchLng, radius]);
 
   const filteredPrivateLocations = useMemo(() => {
