@@ -7,7 +7,8 @@ const FighterModal = ({
   setModalOpen, 
   newFighter, 
   setNewFighter, 
-  handleNewFighterSubmit 
+  handleNewFighterSubmit,
+  loading = false
 }) => {
   const [selectedStyles, setSelectedStyles] = useState([]);
   const [selectedProfileImage, setSelectedProfileImage] = useState(null);
@@ -62,6 +63,7 @@ const FighterModal = ({
           className="fighter-modal__close-button"
           onClick={() => setModalOpen(false)}
           aria-label="Close"
+          disabled={loading}
         >
           ×
         </button>
@@ -74,6 +76,7 @@ const FighterModal = ({
             onChange={(e) => setNewFighter((prev) => {return { ...prev, name: e.target.value }})}
             className="fighter-modal__input"
             required
+            disabled={loading}
           />
           
           <div className="fighter-modal__image-section">
@@ -86,6 +89,7 @@ const FighterModal = ({
                 className="fighter-modal__file-input"
                 id="fighter-profile-image"
                 required
+                disabled={loading}
               />
               <label htmlFor="fighter-profile-image" className="fighter-modal__file-label">
                 {selectedProfileImage ? selectedProfileImage.name : "Choose Profile Image"}
@@ -109,6 +113,7 @@ const FighterModal = ({
                 className="fighter-modal__file-input"
                 id="fighter-profile-gif"
                 required
+                disabled={loading}
               />
               <label htmlFor="fighter-profile-gif" className="fighter-modal__file-label">
                 {selectedProfileGif ? selectedProfileGif.name : "Choose Profile GIF/Animation"}
@@ -136,6 +141,7 @@ const FighterModal = ({
                 className="fighter-modal__input"
                 min="0"
                 required
+                disabled={loading}
               />
               <input
                 type="text"
@@ -144,6 +150,7 @@ const FighterModal = ({
                 onChange={(e) => setNewFighter((prev) => {return { ...prev, record: e.target.value }})}
                 className="fighter-modal__input"
                 required
+                disabled={loading}
               />
             </div>
             <div className="fighter-modal__personal-row">
@@ -154,6 +161,7 @@ const FighterModal = ({
                 onChange={(e) => setNewFighter((prev) => {return { ...prev, height: e.target.value }})}
                 className="fighter-modal__input"
                 required
+                disabled={loading}
               />
               <input
                 type="text"
@@ -162,6 +170,7 @@ const FighterModal = ({
                 onChange={(e) => setNewFighter((prev) => {return { ...prev, weight: e.target.value }})}
                 className="fighter-modal__input"
                 required
+                disabled={loading}
               />
             </div>
             <input
@@ -172,6 +181,7 @@ const FighterModal = ({
               className="fighter-modal__input"
               min="0"
               required
+              disabled={loading}
             />
           </div>
 
@@ -185,6 +195,7 @@ const FighterModal = ({
                     checked={selectedStyles.includes(style)}
                     onChange={() => handleStyleToggle(style)}
                     className="fighter-modal__checkbox"
+                    disabled={loading}
                   />
                   <span className="fighter-modal__style-label">{style}</span>
                 </label>
@@ -201,6 +212,7 @@ const FighterModal = ({
               onChange={(e) => setNewFighter((prev) => {return { ...prev, location: e.target.value }})}
               className="fighter-modal__input"
               required
+              disabled={loading}
             />
             <input
               type="text"
@@ -209,6 +221,7 @@ const FighterModal = ({
               onChange={(e) => setNewFighter((prev) => {return { ...prev, gym: e.target.value }})}
               className="fighter-modal__input"
               required
+              disabled={loading}
             />
             <input
               type="tel"
@@ -217,14 +230,16 @@ const FighterModal = ({
               onChange={(e) => setNewFighter((prev) => {return { ...prev, contact: e.target.value }})}
               className="fighter-modal__input"
               required
+              disabled={loading}
             />
           </div>
           
           <button
             type="submit"
             className="fighter-modal__submit-button"
+            disabled={loading}
           >
-            Submit Fighter Profile
+            {loading ? 'Creating Profile...' : 'Submit Fighter Profile'}
           </button>
         </form>
       </div>

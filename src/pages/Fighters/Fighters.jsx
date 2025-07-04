@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Fighters.scss';
 import {fightersData} from "../../data/Fighters.jsx";
 import { FIGHTING_STYLES_ARRAY } from "../../constants/fightingStyles";
 import FighterModal from "./FighterModal";
+import { supabaseHelpers } from '../../lib/supabase';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Fighters() {
   const [fighters, setFighters] = useState(fightersData.fighters);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [newFighter, setNewFighter] = useState({
     name: "",
     profileImage: null,
@@ -41,9 +44,62 @@ export default function Fighters() {
     setFilters(prev => ({ ...prev, show: display }));
   }
 
-  const handleNewFighterSubmit = (e) => {
+  const handleNewFighterSubmit = async (e) => {
     e.preventDefault();
-    console.log("Register new fighter:", newFighter);
+    setLoading(true);
+    
+    try {
+      // Prepare fighter data for Supabase
+      const fighterData = {
+        name: newFighter.name,
+        age: parseInt(newFighter.age),
+        record: newFighter.record,
+        height: newFighter.height,
+        weight: newFighter.weight,
+        fighting_styles: newFighter.fightingStyles,
+        location: newFighter.location,
+        gym: newFighter.gym,
+        contact: newFighter.contact,
+        years_training: parseInt(newFighter.yearsTraining),
+        // Note: For file uploads, you'd need to handle them separately
+        // profile_image: newFighter.profileImage,
+        // profile_gif: newFighter.profileGif,
+      };
+
+      const result = await supabaseHelpers.addFighter(fighterData);
+      
+      // Add the new fighter to the local state
+      setFighters(prev => [...prev, {
+        id: result.id,
+        ...fighterData,
+        profileImage: newFighter.profileImage ? URL.createObjectURL(newFighter.profileImage) : null,
+        profileGif: newFighter.profileGif ? URL.createObjectURL(newFighter.profileGif) : null,
+      }]);
+
+      // Reset form
+      setNewFighter({
+        name: "",
+        profileImage: null,
+        profileGif: null,
+        age: "",
+        record: "",
+        height: "",
+        weight: "",
+        fightingStyles: [],
+        location: "",
+        gym: "",
+        contact: "",
+        yearsTraining: "",
+      });
+
+      toast.success('Fighter profile created successfully!');
+      setShowModal(false);
+    } catch (error) {
+      console.error('Error adding fighter:', error);
+      toast.error('Failed to create fighter profile. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const filteredFighters = fighters.filter(f => {
@@ -58,6 +114,31 @@ export default function Fighters() {
 
   return (
     <div className="page-container">
+      <Toaster 
+        position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+          success: {
+            duration: 3000,
+            iconTheme: {
+              primary: '#10B981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            duration: 4000,
+            iconTheme: {
+              primary: '#EF4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+      
       <h1 className="page-title">Find <span>Fighters</span></h1>
 
       <div className="filter-container">
@@ -81,15 +162,16 @@ export default function Fighters() {
         <button
             onClick={() => setShowModal((prev) => !prev)}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            disabled={loading}
           >
-            Sign Up as a Fighter
+            {loading ? 'Creating...' : 'Sign Up as a Fighter'}
         </button>
       </div>
 
       {/* Fighter Cards */}
       <div className="fighter-list"> 
         {filteredFighters.map((fighter, index) => (
-          <div key={fighter.id} className="fighter-card">
+          <div key={fighter.name+fighter.id} className="fighter-card">
             <div className="fighter-name">{fighter.name}</div>
             <div className="fighter-profile">
               <img src={fighter.profileImage} className="fighter-image" />
@@ -102,7 +184,7 @@ export default function Fighters() {
               <p><strong>Weight:</strong> {fighter.weight}</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-1">
-              <p><strong>Styles:</strong> {fighter.fightingStyles.join(', ')}</p>
+              <p><strong>Styles:</strong> {fighter?.fightingStyles?.join(', ')}</p>
               <p><strong>Location:</strong> {fighter.location}</p>
               <p><strong>Gym:</strong> {fighter.gym}</p>
               <p><strong>Contact:</strong> {fighter.contact}</p>
@@ -117,6 +199,7 @@ export default function Fighters() {
         newFighter={newFighter}
         setNewFighter={setNewFighter}
         handleNewFighterSubmit={handleNewFighterSubmit}
+        loading={loading}
       />
     </div>
   );

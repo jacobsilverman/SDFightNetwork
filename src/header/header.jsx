@@ -14,8 +14,8 @@ import { Link, useLocation } from 'react-router-dom';
 import ColorModeSwitcher from '../shared/ColorModeSwitcher';
 import './Header.scss';
 
-const desktopNavItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact'];
-const mobileNavItems = ['Home', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact', 'Privacy'];
+const desktopNavItems = ['Home', 'Videos', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact', 'Privacy'];
+const mobileNavItems = ['Home', 'Videos', 'Fighters', 'Trainers', 'Locations', 'Equipment', 'About', 'Contact', 'Privacy'];
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);

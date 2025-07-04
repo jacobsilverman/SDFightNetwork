@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
+import Videos from './pages/Videos';
 import Fighters from './pages/Fighters';
 import Trainers from './pages/Trainers';
 import Locations from './pages/Locations';
@@ -26,6 +27,7 @@ export default function FightSite() {
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/About" element={<About />} />
+          <Route path="/Videos" element={<Videos />} />
           <Route path="/Fighters" element={<Fighters />} />
           <Route path="/Trainers" element={<Trainers />} />
           <Route path="/Locations" element={<Locations />} />
