@@ -17,19 +17,19 @@ import { FIGHTING_STYLES } from "../constants/fightingStyles";
  
 export const fightersData = {
   "fighters": [
-     {
+    {
       "id": 1,
-      "name": "Michael Uchiha",
-      "height": "5'7\"",
-      "weight": "135 lbs",
-      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.JU_JITSU],
-      "age": 21,
-      "yearsTraining": 1,
+      "name": "Ryan Ownens",
+      "height": "6'1\"",
+      "weight": "200 lbs",
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
+      "age": 32,
+      "yearsTraining": 5,
       "location": "La Jolla, CA",
       "gym": "Victory MMA",
-      "record": "4-0",
-      "profileImage": michael,
-      "profileGif": michaelAnimation,
+      "record": "1-1",
+      "profileImage": ryan,
+      "profileGif": ryanAnimation,
       "contact": "(555) 555-5555"
     },
     {
@@ -49,17 +49,17 @@ export const fightersData = {
     },
     {
       "id": 3,
-      "name": "Ryan Ownens",
-      "height": "6'1\"",
-      "weight": "200 lbs",
-      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
-      "age": 32,
-      "yearsTraining": 5,
+      "name": "Michael Uchiha",
+      "height": "5'7\"",
+      "weight": "135 lbs",
+      "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.JU_JITSU],
+      "age": 21,
+      "yearsTraining": 1,
       "location": "La Jolla, CA",
       "gym": "Victory MMA",
-      "record": "1-1",
-      "profileImage": ryan,
-      "profileGif": ryanAnimation,
+      "record": "4-0",
+      "profileImage": michael,
+      "profileGif": michaelAnimation,
       "contact": "(555) 555-5555"
     },
     {
