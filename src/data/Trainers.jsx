@@ -7,6 +7,8 @@ import xavier from "../assets/fighters/Xavier.png";
 import xavierAnimation from "../assets/fighters/Xavier.gif";
 import kabib from "../assets/fighters/kabib.png";
 import evan from "../assets/fighters/Evan.jpg";
+import pablo from "../assets/fighters/Pablo.PNG";
+import pabloAnimation from "../assets/fighters/Pablo.gif";
 import { FIGHTING_STYLES } from "../constants/fightingStyles";
 
  
@@ -71,6 +73,21 @@ export const trainersData = {
       "record": "2-0",
       "profileImage": xavier,
       "profileGif": xavierAnimation,
+      "contact": "(555) 555-5555"
+    },
+    {
+      "id": 5,
+      "name": "Pablo Escobar",
+      "height": "6'\"",
+      "weight": "170 lbs",
+      "fightingStyles": [FIGHTING_STYLES.BOXING, FIGHTING_STYLES.MUAY_THAI],
+      "age": 25,
+      "yearsTraining": 5,
+      "location": "San Diego, CA",
+      "gym": "Victory MMA",
+      "record": "2-0",
+      "profileImage": pablo,
+      "profileGif": pabloAnimation,
       "contact": "(555) 555-5555"
     },
   ]
