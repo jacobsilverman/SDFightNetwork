@@ -1,19 +1,49 @@
 import { useState } from "react";
 import "./Contact.scss";
+import { supabaseHelpers } from "../../lib/supabase";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: send data to your backend or 3rd party form service
-    console.log("Form submitted:", formData);
-    alert("Message sent!");
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      // Add timestamp to the contact data
+      const contactData = {
+        ...formData,
+        created_at: new Date().toISOString(),
+      };
+
+      await supabaseHelpers.addContact(contactData);
+      
+      setSubmitStatus('success');
+      setFormData({ name: "", email: "", message: "" });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      
+    } catch (error) {
+      console.error("Error submitting contact form:", error);
+      setSubmitStatus('error');
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -45,6 +75,19 @@ const Contact = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="contact-form">
+          {/* Status Messages */}
+          {submitStatus === 'success' && (
+            <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+              ✅ Thank you! Your message has been sent successfully. We'll get back to you within 24-48 hours.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+              ❌ Sorry, there was an error sending your message. Please try again or contact us directly.
+            </div>
+          )}
+
           <div>
             <label className="block font-medium mb-1" htmlFor="name">
               Name
@@ -56,7 +99,8 @@ const Contact = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect"
+              disabled={isSubmitting}
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -71,7 +115,8 @@ const Contact = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect"
+              disabled={isSubmitting}
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -86,15 +131,21 @@ const Contact = () => {
               rows="6"
               value={formData.message}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect"
+              disabled={isSubmitting}
+              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none hover-effect disabled:opacity-50 disabled:cursor-not-allowed"
             ></textarea>
           </div>
 
           <button
             type="submit"
-            className="bg-black text-white px-6 py-2 rounded hover:bg-gray-900 transition"
+            disabled={isSubmitting}
+            className={`px-6 py-2 rounded transition ${
+              isSubmitting 
+                ? 'bg-gray-400 cursor-not-allowed' 
+                : 'bg-black text-white hover:bg-gray-900'
+            }`}
           >
-            Send Message
+            {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </div>
