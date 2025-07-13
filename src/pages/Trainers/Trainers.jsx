@@ -146,7 +146,7 @@ export default function Trainers() {
       {/* Trainer Cards */}
       <div className="trainer-list"> 
         {filteredTrainers.map((trainer, index) => (
-          <div key={trainer.id} className="trainer-card">
+          <div key={trainer.contact+trainer.id} className="trainer-card">
             <div className="trainer-name">{trainer.name}</div>
             <div className="trainer-profile">
               <img src={trainer.profileImage} className="trainer-image" />
