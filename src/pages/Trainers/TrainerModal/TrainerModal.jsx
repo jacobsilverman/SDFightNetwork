@@ -7,7 +7,8 @@ const TrainerModal = ({
   setModalOpen, 
   newTrainer, 
   setNewTrainer, 
-  handleNewTrainerSubmit 
+  handleNewTrainerSubmit,
+  loading = false
 }) => {
   const [selectedStyles, setSelectedStyles] = useState([]);
   const [selectedProfileImage, setSelectedProfileImage] = useState(null);
@@ -74,6 +75,7 @@ const TrainerModal = ({
             onChange={(e) => setNewTrainer((prev) => {return { ...prev, name: e.target.value }})}
             className="trainer-modal__input"
             required
+            disabled={loading}
           />
           
           <div className="trainer-modal__image-section">
@@ -86,6 +88,7 @@ const TrainerModal = ({
                 className="trainer-modal__file-input"
                 id="trainer-profile-image"
                 required
+                disabled={loading}
               />
               <label htmlFor="trainer-profile-image" className="trainer-modal__file-label">
                 {selectedProfileImage ? selectedProfileImage.name : "Choose Profile Image"}
@@ -109,6 +112,7 @@ const TrainerModal = ({
                 className="trainer-modal__file-input"
                 id="trainer-profile-gif"
                 required
+                disabled={loading}
               />
               <label htmlFor="trainer-profile-gif" className="trainer-modal__file-label">
                 {selectedProfileGif ? selectedProfileGif.name : "Choose Profile GIF/Animation"}
@@ -136,6 +140,7 @@ const TrainerModal = ({
                 className="trainer-modal__input"
                 min="0"
                 required
+                disabled={loading}
               />
               <input
                 type="text"
@@ -144,6 +149,7 @@ const TrainerModal = ({
                 onChange={(e) => setNewTrainer((prev) => {return { ...prev, record: e.target.value }})}
                 className="trainer-modal__input"
                 required
+                disabled={loading}
               />
             </div>
             <div className="trainer-modal__personal-row">
@@ -154,6 +160,7 @@ const TrainerModal = ({
                 onChange={(e) => setNewTrainer((prev) => {return { ...prev, height: e.target.value }})}
                 className="trainer-modal__input"
                 required
+                disabled={loading}
               />
               <input
                 type="text"
@@ -162,6 +169,7 @@ const TrainerModal = ({
                 onChange={(e) => setNewTrainer((prev) => {return { ...prev, weight: e.target.value }})}
                 className="trainer-modal__input"
                 required
+                disabled={loading}
               />
             </div>
             <input
@@ -172,6 +180,7 @@ const TrainerModal = ({
               className="trainer-modal__input"
               min="0"
               required
+              disabled={loading}
             />
           </div>
 
@@ -185,6 +194,7 @@ const TrainerModal = ({
                     checked={selectedStyles.includes(style)}
                     onChange={() => handleStyleToggle(style)}
                     className="trainer-modal__checkbox"
+                    disabled={loading}
                   />
                   <span className="trainer-modal__style-label">{style}</span>
                 </label>
@@ -201,6 +211,7 @@ const TrainerModal = ({
               onChange={(e) => setNewTrainer((prev) => {return { ...prev, location: e.target.value }})}
               className="trainer-modal__input"
               required
+              disabled={loading}
             />
             <input
               type="text"
@@ -209,6 +220,7 @@ const TrainerModal = ({
               onChange={(e) => setNewTrainer((prev) => {return { ...prev, gym: e.target.value }})}
               className="trainer-modal__input"
               required
+              disabled={loading}
             />
             <input
               type="tel"
@@ -217,14 +229,16 @@ const TrainerModal = ({
               onChange={(e) => setNewTrainer((prev) => {return { ...prev, contact: e.target.value }})}
               className="trainer-modal__input"
               required
+              disabled={loading}
             />
           </div>
           
           <button
             type="submit"
             className="trainer-modal__submit-button"
+            disabled={loading}
           >
-            Submit Trainer Profile
+             {loading ? 'Creating Profile...' : 'Submit Trainer Profile'}
           </button>
         </form>
       </div>

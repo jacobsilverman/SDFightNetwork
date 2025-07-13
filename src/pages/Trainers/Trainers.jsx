@@ -3,10 +3,13 @@ import './Trainers.scss';
 import {trainersData} from "../../data/Trainers.jsx";
 import { FIGHTING_STYLES_ARRAY } from "../../constants/fightingStyles";
 import TrainerModal from "./TrainerModal";
+import { supabaseHelpers } from '../../lib/supabase';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function Trainers() {
   const [trainers, setTrainers] = useState(trainersData.trainers);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [newTrainer, setNewTrainer] = useState({
     name: "",
     profileImage: null,
@@ -41,9 +44,62 @@ export default function Trainers() {
     setFilters(prev => ({ ...prev, show: display }));
   }
 
-  const handleNewTrainerSubmit = (e) => {
+  const handleNewTrainerSubmit = async (e) => {
     e.preventDefault();
-    console.log("Register new trainer:", newTrainer);
+    setLoading(true);
+    
+    try {
+      // Prepare trainer data for Supabase
+      const trainerData = {
+        name: newTrainer.name,
+        age: parseInt(newTrainer.age),
+        record: newTrainer.record,
+        height: newTrainer.height,
+        weight: newTrainer.weight,
+        fighting_styles: newTrainer.fightingStyles,
+        location: newTrainer.location,
+        gym: newTrainer.gym,
+        contact: newTrainer.contact,
+        years_training: parseInt(newTrainer.yearsTraining),
+        // Note: For file uploads, you'd need to handle them separately
+        // profile_image: newTrainer.profileImage,
+        // profile_gif: newTrainer.profileGif,
+      };
+
+      const result = await supabaseHelpers.addTrainer(trainerData);
+      
+      // Add the new trainer to the local state
+      setTrainers(prev => [...prev, {
+        id: result.id,
+        ...trainerData,
+        profileImage: newTrainer.profileImage ? URL.createObjectURL(newTrainer.profileImage) : null,
+        profileGif: newTrainer.profileGif ? URL.createObjectURL(newTrainer.profileGif) : null,
+      }]);
+
+      // Reset form
+      setNewTrainer({
+        name: "",
+        profileImage: null,
+        profileGif: null,
+        age: "",
+        record: "",
+        height: "",
+        weight: "",
+        fightingStyles: [],
+        location: "",
+        gym: "",
+        contact: "",
+        yearsTraining: "",
+      });
+
+      toast.success('Trainer profile created successfully!');
+      setShowModal(false);
+    } catch (error) {
+      console.error('Error adding trainer:', error);
+      toast.error('Failed to create trainer profile. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const filteredTrainers = trainers.filter(f => {
@@ -81,8 +137,9 @@ export default function Trainers() {
         <button
             onClick={() => setShowModal((prev) => !prev)}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+            disabled={loading}
           >
-            Sign Up as a Trainer
+            {loading ? 'Creating...' : 'Sign Up as a Trainer'}
         </button>
       </div>
 
@@ -103,7 +160,7 @@ export default function Trainers() {
               <p><strong>Weight:</strong> {trainer.weight}</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-1">
-              <p><strong>Styles:</strong> {trainer.fightingStyles.join(', ')}</p>
+              <p><strong>Styles:</strong> {trainer?.fightingStyles && trainer?.fightingStyles.toString()}</p>
               <p><strong>Location:</strong> {trainer.location}</p>
               <p><strong>Gym:</strong> {trainer.gym}</p>
               <p><strong>Contact:</strong> {trainer.contact}</p>
@@ -118,6 +175,7 @@ export default function Trainers() {
         newTrainer={newTrainer}
         setNewTrainer={setNewTrainer}
         handleNewTrainerSubmit={handleNewTrainerSubmit}
+        loading={loading}
       />
     </div>
   );

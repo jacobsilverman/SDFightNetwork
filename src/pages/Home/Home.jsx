@@ -139,7 +139,7 @@ const Home = () => {
                     <Card className="h-full">
                         <CardContent className="p-6 text-center">
                             <GiBelt className="text-6xl text-black mb-4 mx-auto" />
-                            <h2 className="text-2xl font-bold mb-2">Ju juisu</h2>
+                            <h2 className="text-2xl font-bold mb-2">Brazilian Jiu Jitsu</h2>
                             <p>
                                 Master the ground game with leverage, submissions, and positional control. Develop the skill to outmaneuver opponents regardless of size.
                             </p>

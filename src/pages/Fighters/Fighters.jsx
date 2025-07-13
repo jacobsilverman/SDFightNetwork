@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Fighters.scss';
 import {fightersData} from "../../data/Fighters.jsx";
 import { FIGHTING_STYLES_ARRAY } from "../../constants/fightingStyles";
