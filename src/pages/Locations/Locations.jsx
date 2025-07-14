@@ -5,6 +5,8 @@ import { gymsData } from '../../data/Gyms.jsx';
 import { privateData } from '../../data/Private.jsx';
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import LocationModal from "./LocationModal";
+import toast, { Toaster } from 'react-hot-toast';
+import { supabaseHelpers } from '../../lib/supabase';
 
 const containerStyle = {
   height: "500px",
@@ -28,14 +30,15 @@ const Locations = () => {
     street: "",
     city: "",
     state: "",
-    zipCode: "",
+    zip: "",
     fightingStyles: [],
     price: "",
     phone: "",
     email: "",
-    website: "",
+    url: "",
   });
   const [hoveredMarkerId, setHoveredMarkerId] = useState(null);
+  const [isSubmittingLocation, setIsSubmittingLocation] = useState(false);
 
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: "AIzaSyA6rL31DnP10K5YajtIaCFQAtONg4xGZys",
@@ -70,9 +73,36 @@ const Locations = () => {
     return filterLocationsByRadius(privateData?.private);
   }, [searchLat, searchLng, radius]);
 
-  const handleNewLocationSubmit = (e) => {
+  const handleNewLocationSubmit = async (e) => {
     e.preventDefault();
-    console.log("Register new location:", newLocation);
+    setIsSubmittingLocation(true);
+    try {
+      // Prepare location data (skip image)
+      const locationData = { ...newLocation };
+      delete locationData.image;
+      locationData.created_at = new Date().toISOString();
+      await supabaseHelpers.addLocation(locationData);
+      toast.success('Location submitted successfully!');
+      setNewLocation({
+        name: "",
+        image: null,
+        street: "",
+        city: "",
+        state: "",
+        zip: "",
+        fightingStyles: [],
+        price: "",
+        phone: "",
+        email: "",
+        url: "",
+      });
+      setModalOpen(false);
+    } catch (error) {
+      toast.error('There was an error submitting the location. Please try again.');
+      console.error('Error submitting location:', error);
+    } finally {
+      setIsSubmittingLocation(false);
+    }
   };
 
   return (
@@ -101,6 +131,15 @@ const Locations = () => {
           ))}
         </GoogleMap>
       )}
+
+      <Toaster position="top-right"
+        toastOptions={{
+          duration: 4000,
+          style: { background: '#363636', color: '#fff' },
+          success: { duration: 3000, iconTheme: { primary: '#10B981', secondary: '#fff' } },
+          error: { duration: 4000, iconTheme: { primary: '#EF4444', secondary: '#fff' } },
+        }}
+      />
 
       <div className="mt-6 space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 items-center justify-around gap-4 location-search-container">
@@ -134,8 +173,9 @@ const Locations = () => {
           <button 
             className="sm:col-span-3 lg:col-span-1" 
             onClick={() => setModalOpen(true)}
+            disabled={isSubmittingLocation}
           >
-            Register New Training Location
+            {isSubmittingLocation ? 'Submitting...' : 'Register New Training Location'}
           </button>
         </div>
 
@@ -182,7 +222,7 @@ const Locations = () => {
                       <span className="text-yellow-500 font-medium">{loc.reviews} ★</span>
                     </p>
                     <a
-                      href={loc.website}
+                      href={loc.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-block mt-2 text-blue-600 hover:underline"

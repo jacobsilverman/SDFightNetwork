@@ -34,6 +34,15 @@ export const supabaseHelpers = {
     if (error|| data===null) throw error
     return data
   },
+  // Add a new Training Location
+  async addLocation(LocationData) {
+    const { data, error } = await supabase
+        .from('Location')
+        .insert({...LocationData})
+        .select()
+    if (error|| data===null) throw error
+    return data
+  },
 }
 
 // For direct database connection (if needed)

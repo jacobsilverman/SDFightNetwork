@@ -125,8 +125,8 @@ const LocationModal = ({
             <input
               type="text"
               placeholder="ZIP Code"
-              value={newLocation.zipCode}
-              onChange={(e) => setNewLocation((prev) => {return { ...prev, zipCode: e.target.value }})}
+              value={newLocation.zip}
+              onChange={(e) => setNewLocation((prev) => {return { ...prev, zip: e.target.value }})}
               className="location-modal__input"
               required
             />
@@ -176,10 +176,10 @@ const LocationModal = ({
           />
           
           <input
-            type="url"
+            type="text"
             placeholder="Website URL"
-            value={newLocation.website}
-            onChange={(e) => setNewLocation((prev) => {return { ...prev, website: e.target.value }})}
+            value={newLocation.url}
+            onChange={(e) => setNewLocation((prev) => {return { ...prev, url: e.target.value }})}
             className="location-modal__input"
           />
           
