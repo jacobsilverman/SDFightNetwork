@@ -127,16 +127,16 @@ const Videos = () => {
               <div className="video-container">
                 {
                   video?.video && <>
-                  <div className="fb-link">
-                    <a href={video.url} target="_blank">visit facebook link</a>
-                  </div>
-                  
-                  <video 
-                    src={video.video} 
-                    controls 
-                    className="h-full"
-                    preload="metadata"
-                  />
+                    <div className="fb-link">
+                      <a href={video.url} target="_blank">visit facebook link</a>
+                    </div>
+                    
+                    <video 
+                      src={video.video} 
+                      controls 
+                      className="h-full"
+                      preload="metadata"
+                    />
                   </>
 
                   // <div dangerouslySetInnerHTML={{ __html: video.facebookEmbed }} />

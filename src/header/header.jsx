@@ -41,7 +41,7 @@ const Header = () => {
       <List>
         {mobileNavItems.map((item) => (
           <ListItem
-            button
+            button="true"
             key={item}
             component={Link}
             to={`/${item.toLowerCase()}`}

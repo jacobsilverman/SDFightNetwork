@@ -119,21 +119,6 @@ export default function Trainers() {
       <div className="filter-container">
         {!filters.show && <button onClick={() => showFilter(true)} type="submit">Filter</button>}
         {filters.show && <button onClick={() => showFilter(false)}>Hide</button>}
-        
-        {filters.show && <div className="filter-bar">
-          <select name="fightingStyle" onChange={handleChange}>
-            <option value="">Any Style</option>
-            {FIGHTING_STYLES_ARRAY.map(style => (
-              <option key={style} value={style}>{style}</option>
-            ))}
-          </select>
-          <input type="text" name="location" placeholder="Location" onChange={handleChange} />
-          <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />
-          <input type="number" name="minAge" placeholder="Min Age" onChange={handleChange} />
-          <input type="number" name="maxAge" placeholder="Max Age" onChange={handleChange} />
-          <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
-          <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} />
-        </div>}
         <button
             onClick={() => setShowModal((prev) => !prev)}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
@@ -142,6 +127,20 @@ export default function Trainers() {
             {loading ? 'Creating...' : 'Sign Up as a Trainer'}
         </button>
       </div>
+      {filters.show && <div className="filter-bar">
+          <select name="fightingStyle" onChange={handleChange}>
+            <option value="">Any Style</option>
+            {FIGHTING_STYLES_ARRAY.map(style => (
+              <option key={style} value={style}>{style}</option>
+            ))}
+          </select>
+          {/* <input type="text" name="location" placeholder="Location" onChange={handleChange} />
+          <input type="text" name="gym" placeholder="Gym" onChange={handleChange} />
+          <input type="number" name="minAge" placeholder="Min Age" onChange={handleChange} />
+          <input type="number" name="maxAge" placeholder="Max Age" onChange={handleChange} />
+          <input type="number" name="minYears" placeholder="Min Years Training" onChange={handleChange} />
+          <input type="number" name="maxYears" placeholder="Max Years Training" onChange={handleChange} /> */}
+        </div>}
 
       {/* Trainer Cards */}
       <div className="trainer-list"> 
