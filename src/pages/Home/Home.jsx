@@ -23,29 +23,37 @@ const Home = () => {
 
     const SignUpCard = ({title, desc, button, cardType = 'fight'}) => (
         <div className="min-h-screen flex items-center justify-center px-4">
-            <div className="relative w-full max-w-md p-[2px] rounded-2xl overflow-hidden shadow-2xl group hover:scale-105 transition-transform duration-300">
-            
-            {/* Animated Gradient Background */}
-            <div className={`absolute inset-0 animate-gradient-2 bg-gradient-to-r ${
-              cardType === 'train' 
-                ? 'from-blue-600 via-transparent to-red-600' 
-                : 'from-red-600 via-transparent to-blue-600'
-            } bg-[length:400%_400%] opacity-40 blur-lg`} />
-
-                {/* Content with glass effect */}
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-md p-6 z-10  text-center">
-                    <h2 className="text-3xl font-bold text-black mb-2 drop-shadow-lg text-center">
-                    {title}
+            <div className="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl group hover:scale-105 transition-transform duration-300">
+                {/* Animated Gradient Background using theme variables */}
+                <div
+                    className="absolute inset-0 w-full h-full animate-gradient-2 opacity-40 blur-lg z-0"
+                    style={{
+                        background: 'linear-gradient(90deg, var(--primary-color), transparent, var(--secondary-color))',
+                        backgroundSize: '400% 400%'
+                    }}
+                />
+                {/* Glass effect content above the animation */}
+                <div
+                    className="relative rounded-2xl backdrop-blur-md p-6 text-center z-10"
+                    style={{
+                        background: 'rgba(255,255,255,0.10)',
+                        color: 'var(--text-color, #000)'
+                    }}
+                >
+                    <h2 className="text-3xl font-bold mb-2 drop-shadow-lg text-center">
+                        {title}
                     </h2>
-                    <p className="text-black text-lg">
-                    {desc}
+                    <p className="text-lg">
+                        {desc}
                     </p>
-                    <button className={`mt-4 px-6 py-2 rounded-lg font-semibold transition ${
-                      cardType === 'train'
-                        ? 'bg-blue-600 text-white hover:bg-blue-700'
-                        : 'bg-red-600 text-white hover:bg-red-700'
-                    }`}>
-                    {button}
+                    <button
+                        className="mt-4 px-6 py-2 rounded-lg font-semibold transition"
+                        style={{
+                            background: 'var(--primary-color)',
+                            color: 'var(--text-color)'
+                        }}
+                    >
+                        {button}
                     </button>
                 </div>
             </div>
