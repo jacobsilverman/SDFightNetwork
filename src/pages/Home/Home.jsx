@@ -1,7 +1,9 @@
-import { Card, CardContent, Button, Typography } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import { motion } from "framer-motion";
-import { GiBoxingGloveSurprise, GiBelt, GiFist  } from "react-icons/gi";
+import { FIGHTING_STYLES_ARRAY } from "../../constants/fightingStyles";
+import { GiBoxingGloveSurprise, GiBelt, GiFist, GiHighKick, GiBootKick } from "react-icons/gi";
 import { MdSportsMma } from "react-icons/md";
+import { FaUserNinja, FaDumbbell, FaFistRaised, FaUserSecret, FaUserAlt, FaMusic, FaUserShield, FaUserInjured } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
@@ -103,73 +105,65 @@ const Home = () => {
         </div>
     );
 
+    // Map fighting styles to icons (add more as needed)
+    const styleIcons = {
+        "Boxing": <GiBoxingGloveSurprise className="text-6xl text-red-600 mb-4 mx-auto" />,
+        "Muay Thai": <MdSportsMma className="text-6xl text-blue-600 mb-4 mx-auto" />,
+        "MMA": <GiFist className="text-6xl text-green-600 mb-4 mx-auto" />,
+        "Kickboxing": <GiBootKick className="text-6xl text-yellow-600 mb-4 mx-auto" />,
+        "Krav Maga": <FaUserSecret className="text-6xl text-gray-700 mb-4 mx-auto" />,
+        "Wrestling": <FaDumbbell className="text-6xl text-orange-600 mb-4 mx-auto" />,
+        "Ju-Jitsu": <FaUserAlt className="text-6xl text-lime-600 mb-4 mx-auto" />,
+        "Judo": <FaFistRaised className="text-6xl text-indigo-600 mb-4 mx-auto" />,
+        "Capoeira": <FaMusic  className="text-6xl text-pink-600 mb-4 mx-auto" />,
+        "Karate": <GiBelt  className="text-6xl text-gray-900 mb-4 mx-auto" />,
+        "Taekwondo": <GiHighKick className="text-6xl text-blue-400 mb-4 mx-auto" />,
+        "Win Chun": <FaUserNinja className="text-6xl text-black mb-4 mx-auto" />,
+        "Kung fu": <FaUserShield className="text-6xl text-yellow-800 mb-4 mx-auto" />,
+        "Tai chi": <FaUserInjured className="text-6xl text-gray-500 mb-4 mx-auto" />,
+    };
+
+    // Placeholder descriptions for each style
+    const styleDescriptions = {
+        "Boxing": "Master footwork, speed, and precision punches. Explore techniques from legends of the ring.",
+        "Muay Thai": "Embrace the art of 8 limbs. Train with kicks, knees, elbows, and clinch to dominate the fight.",
+        "MMA": "Blend striking and grappling into a complete combat system. Train across disciplines to become a well-rounded and versatile fighter.",
+        "Kickboxing": "Combine powerful kicks and punches for a dynamic stand-up fighting style.",
+        "Krav Maga": "Practical self-defense with real-world applications. Learn to neutralize threats quickly and efficiently.",
+        "Wrestling": "Dominate with takedowns, throws, and ground control. Build strength and technique.",
+        "Ju-Jitsu": "Master the ground game with leverage, submissions, and positional control.",
+        "Judo": "Use your opponent's force against them. Throws, pins, and submissions for all sizes.",
+        "Capoeira": "Blend dance, acrobatics, and martial arts in this unique Brazilian style.",
+        "Karate": "Traditional striking art focused on discipline, speed, and precision.",
+        "Taekwondo": "Famous for its high, fast kicks and dynamic footwork.",
+        "Win Chun": "Close-range combat emphasizing quick strikes and defense.",
+        "Kung fu": "A diverse range of Chinese martial arts with rich history and philosophy.",
+        "Tai chi": "Gentle, flowing movements for balance, health, and internal power.",
+    };
+
     const StylesSection = () => (
         <div className="text-center pt-20 pb-20">
             <h3 className="text-xl mb-6">
-                Our Network primary consists of these fighting practices
+                Our Network primarily consists of these fighting practices
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-6 md:px-20 py-10">
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="rounded-2xl shadow-xl overflow-hidden"
-                >
-                    <Card className="h-full">
-                        <CardContent className="p-6 text-center">
-                            <GiBoxingGloveSurprise className="text-6xl text-red-600 mb-4 mx-auto" />
-                            <h2 className="text-2xl font-bold mb-2">Boxing</h2>
-                            <p>
-                                Master footwork, speed, and precision punches. Explore techniques from legends of the ring.
-                            </p>
-                        </CardContent>
-                    </Card>
-                </motion.div>
-
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="rounded-2xl shadow-xl overflow-hidden"
-                >
-                    <Card className="h-full">
-                        <CardContent className="p-6 text-center">
-                            <MdSportsMma className="text-6xl text-blue-600 mb-4 mx-auto" />
-                            <h2 className="text-2xl font-bold mb-2">Muay Thai</h2>
-                            <p>
-                                Embrace the art of 8 limbs. Train with kicks, knees, elbows, and clinch to dominate the fight.
-                            </p>
-                        </CardContent>
-                    </Card>
-                </motion.div>
-
-                
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="rounded-2xl shadow-xl overflow-hidden"
-                >
-                    <Card className="h-full">
-                        <CardContent className="p-6 text-center">
-                            <GiBelt className="text-6xl text-black mb-4 mx-auto" />
-                            <h2 className="text-2xl font-bold mb-2">Brazilian Jiu Jitsu</h2>
-                            <p>
-                                Master the ground game with leverage, submissions, and positional control. Develop the skill to outmaneuver opponents regardless of size.
-                            </p>
-                        </CardContent>
-                    </Card>
-                </motion.div>
-
-                
-                <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    className="rounded-2xl shadow-xl overflow-hidden"
-                >
-                    <Card className="h-full">
-                        <CardContent className="p-6 text-center">
-                            <GiFist  className="text-6xl text-green-600 mb-4 mx-auto" />
-                            <h2 className="text-2xl font-bold mb-2">Mixed Martial Arts</h2>
-                            <p>
-                                Blend striking and grappling into a complete combat system. Train across disciplines to become a well-rounded and versatile fighter.
-                            </p>
-                        </CardContent>
-                    </Card>
-                </motion.div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-20 py-10">
+                {FIGHTING_STYLES_ARRAY.map((style) => (
+                    <motion.div
+                        key={style}
+                        whileHover={{ scale: 1.05 }}
+                        className="rounded-2xl shadow-xl overflow-hidden"
+                    >
+                        <Card className="h-full">
+                            <CardContent className="p-6 text-center">
+                                {styleIcons[style] || <GiFist className="text-6xl text-gray-400 mb-4 mx-auto" />}
+                                <h2 className="text-2xl font-bold mb-2">{style}</h2>
+                                <p>
+                                    {styleDescriptions[style] || "A unique and powerful martial art."}
+                                </p>
+                            </CardContent>
+                        </Card>
+                    </motion.div>
+                ))}
             </div>
         </div>
     );
