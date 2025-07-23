@@ -37,7 +37,7 @@ const Equipment = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="flex justify-center mb-10">
+      <div className="flex justify-center mb-10 equipment-searchbar">
         <input
           type="text"
           placeholder="Search equipment..."
