@@ -78,7 +78,7 @@ export const trainersData = {
     {
       "id": 2,
       "name": "Pablo Escobar",
-      "height": "6'\"",
+      "height": "6'0\"",
       "weight": "170 lbs",
       "fightingStyles": [FIGHTING_STYLES.BOXING, FIGHTING_STYLES.MUAY_THAI],
       "age": 25,

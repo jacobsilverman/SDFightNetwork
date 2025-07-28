@@ -20,8 +20,8 @@ export const fightersData = {
     {
       "id": 1,
       "name": "Ryan Ownens",
-      "height": "6'1\"",
-      "weight": "200 lbs",
+      "height": "5'9\"",
+      "weight": "180 lbs",
       "fightingStyles": [FIGHTING_STYLES.MUAY_THAI, FIGHTING_STYLES.MIXED_MARTIAL_ARTS],
       "age": 32,
       "yearsTraining": 5,
@@ -30,18 +30,18 @@ export const fightersData = {
       "record": "1-1",
       "profileImage": ryan,
       "profileGif": ryanAnimation,
-      "contact": "(555) 555-5555"
+      "contact": "@ryanprofighter"
     },
     {
       "id": 2,
       "name": "James Hoffman",
-      "height": "5'7\"",
-      "weight": "135 lbs",
+      "height": "6'0\"",
+      "weight": "185 lbs",
       "fightingStyles": [FIGHTING_STYLES.MUAY_THAI],
       "age": 44,
       "yearsTraining": 3,
       "location": "La Jolla, CA",
-      "gym": "Shogun Combat Club",
+      "gym": "Victory MMA",
       "record": "0-4",
       "profileImage": james,
       "profileGif": jamesAnimation,
@@ -80,7 +80,7 @@ export const fightersData = {
     {
       "id": 5,
       "name": "Pablo Escobar",
-      "height": "6'\"",
+      "height": "6'0\"",
       "weight": "170 lbs",
       "fightingStyles": [FIGHTING_STYLES.BOXING, FIGHTING_STYLES.MUAY_THAI],
       "age": 25,
