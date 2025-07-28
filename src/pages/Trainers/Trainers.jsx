@@ -147,22 +147,28 @@ export default function Trainers() {
         {filteredTrainers.map((trainer, index) => (
           <div key={trainer.contact+trainer.id} className="trainer-card">
             <div className="trainer-name">{trainer.name}</div>
+            <p>{trainer.contact}</p>
             <div className="trainer-profile">
               <img src={trainer.profileImage} className="trainer-image" />
               <img src={trainer.profileGif}  className="trainer-animation" />
             </div>
 
             <div className="grid grid-cols-2">
-              <p><strong>Age:</strong> {trainer.age}</p>
-              <p><strong>Record:</strong> {trainer.record}</p>
+              {/* <p><strong>Age:</strong> {trainer.age}</p>
+              <p><strong>Record:</strong> {trainer.record}</p> */}
               <p><strong>Height:</strong> {trainer.height}</p> 
               <p><strong>Weight:</strong> {trainer.weight}</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-1">
-              <p><strong>Styles:</strong> {trainer?.fightingStyles && trainer?.fightingStyles.toString()}</p>
-              <p><strong>Location:</strong> {trainer.location}</p>
               <p><strong>Gym:</strong> {trainer.gym}</p>
-              <p><strong>Contact:</strong> {trainer.contact}</p>
+              <p><strong>Location:</strong> {trainer.location}</p>
+              <p className="mt-2">{trainer?.fightingStyles?.map((style) => {
+                return (
+                  <span key={"trainer"+style} className="fighting-style">
+                    {style}
+                  </span>
+                )
+              })}</p>
             </div>
           </div>
         ))}

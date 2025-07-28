@@ -17,6 +17,7 @@
       padding: 0.5rem;
       border: 1px solid #ccc;
       border-radius: 0.5rem;
+      max-width: 250px;
     }
   }
 
@@ -31,6 +32,15 @@
     border-radius: 1rem;
     padding: 1rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    .fighting-style {
+      padding: 3px;
+      border: 1px solid white;
+      margin: 5px;
+      background-color: var(--primary-color);
+      color:white;
+      border-radius: 10px;
+    }
 
     .fighter-name {
       font-size: 24px;
